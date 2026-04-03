@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1">
+
+    <children>
+        <VBox layoutX="50.0" layoutY="30.0" spacing="10.0">
+
+            <Label text="Legal User Panel"/>
+
+            <TextField fx:id="nameField" promptText="Enter Name"/>
+            <TextField fx:id="idField" promptText="Enter User ID"/>
+
+            <Button text="Verify Ownership"/>
+            <Button text="Check Compliance"/>
+            <Button text="Assign Legal Classification"/>
+            <Button text="Handle Property Transfer"/>
+
+            <TextArea prefHeight="100.0"/>
+
+        </VBox>
+    </children>
+
+</AnchorPane>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400" prefWidth="600" xmlns="http://javafx.com/javafx/8">
+    <children>
+        <VBox layoutX="50" layoutY="30" spacing="10">
+            <Label text="Project"/>
+            <TextField promptText="Project ID"/>
+            <TextField promptText="Project Name"/>
+            <TextField promptText="Progress"/>
+            <Button text="Define Project"/>
+            <Button text="Update Timeline"/>
+            <TextArea prefHeight="100"/>
+        </VBox>
+    </children>
+</AnchorPane>
+

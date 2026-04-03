@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.PropertyController">
+
+    <children>
+        <VBox layoutX="50.0" layoutY="30.0" spacing="10.0">
+
+            <Label text="Property"/>
+
+            <TextField fx:id="propertyId" promptText="Property ID"/>
+            <TextField fx:id="ownerName" promptText="Owner Name"/>
+            <TextField fx:id="legalStatus" promptText="Legal Status"/>
+
+            <Button text="Verify Ownership"/>
+            <Button text="Update Legal Status"/>
+
+            <TextArea fx:id="outputArea" prefHeight="100.0"/>
+
+            <Button text="Back to Menu" onAction="#goBack"/>
+
+        </VBox>
+    </children>
+
+</AnchorPane>
