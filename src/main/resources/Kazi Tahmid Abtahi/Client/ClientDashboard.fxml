@@ -1,14 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="KaziTahmidAbtahi.Client.ClientDashboardController"
-            prefHeight="400.0" prefWidth="600.0">
 
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="801.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KaziTahmidAbtahi.Client.ClientDashboardController">
+   <left>
+      <VBox prefHeight="526.0" prefWidth="166.0" style="-fx-background-color: #2c3e60;" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#searchPropertiesButtonOnAction" prefHeight="26.0" prefWidth="112.0" text="Search Properties">
+               <VBox.margin>
+                  <Insets bottom="30.0" left="30.0" top="70.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#bookingsAndDocsButtonOnAction" prefHeight="26.0" prefWidth="140.0" text="My Bookings &amp; Docs">
+               <VBox.margin>
+                  <Insets bottom="30.0" left="15.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#paymentsButtonOnAction" text="My Payments">
+               <VBox.margin>
+                  <Insets bottom="30.0" left="40.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#trackStatusButtonOnAction" text="Track Status">
+               <VBox.margin>
+                  <Insets bottom="200.0" left="45.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#signOutButtonOnAction" text="Sign Out">
+               <VBox.margin>
+                  <Insets left="50.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+   <padding>
+      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+   </padding>
+   <center>
+      <StackPane fx:id="contentArea" prefHeight="556.0" prefWidth="635.0" style="-fx-background-color: grey;" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </StackPane>
+   </center>
+   <top>
+      <Label text="Client Dashboard" textFill="#994040" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </top>
+</BorderPane>
