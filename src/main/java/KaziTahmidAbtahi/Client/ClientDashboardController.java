@@ -1,5 +1,8 @@
 package KaziTahmidAbtahi.Client;
 
+import javafx.event.ActionEvent;
+import javafx.scene.layout.StackPane;
+
 public class ClientDashboardController {
     @javafx.fxml.FXML
     private StackPane contentArea;

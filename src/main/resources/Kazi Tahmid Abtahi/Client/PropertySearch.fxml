@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="550.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KaziTahmidAbtahi.Client.PropertySearchController">
    <children>
       <Label layoutX="222.0" layoutY="29.0" text="Search Available Properties" textFill="#324dae" AnchorPane.topAnchor="29.0">
@@ -17,22 +16,23 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Button layoutX="38.0" layoutY="186.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="285.0" text="Filter Properties" />
-      <ComboBox layoutX="38.0" layoutY="136.0" prefHeight="26.0" prefWidth="188.0" promptText="Location" />
-      <ComboBox layoutX="337.0" layoutY="136.0" prefHeight="26.0" prefWidth="188.0" promptText="Min Bedrooms" />
-      <TextField layoutX="38.0" layoutY="85.0" prefHeight="26.0" prefWidth="188.0" promptText="Max Price" />
-      <ComboBox layoutX="337.0" layoutY="85.0" prefHeight="26.0" prefWidth="188.0" promptText="Property Type" />
-      <ComboBox layoutX="337.0" layoutY="186.0" prefHeight="26.0" prefWidth="286.0" promptText="Sort by Price" />
-      <TableView layoutX="38.0" layoutY="250.0" prefHeight="265.0" prefWidth="587.0">
+      <Button layoutX="38.0" layoutY="177.0" mnemonicParsing="false" onAction="#filterPropertiesButtonOnAction" prefHeight="26.0" prefWidth="242.0" text="Filter Properties" />
+      <ComboBox fx:id="locationCB" layoutX="38.0" layoutY="123.0" prefHeight="26.0" prefWidth="188.0" promptText="Location" />
+      <ComboBox fx:id="minBedroomsCB" layoutX="265.0" layoutY="123.0" prefHeight="26.0" prefWidth="188.0" promptText="Min Bedrooms" />
+      <TextField fx:id="maxPriceTF" layoutX="38.0" layoutY="85.0" prefHeight="26.0" prefWidth="188.0" promptText="Max Price" />
+      <ComboBox fx:id="propertyTypeCB" layoutX="265.0" layoutY="85.0" prefHeight="26.0" prefWidth="188.0" promptText="Property Type" />
+      <ComboBox fx:id="sortingFilterCB" layoutX="38.0" layoutY="211.0" prefHeight="26.0" prefWidth="242.0" promptText="Sort by Price" />
+      <TableView fx:id="propertyDataTableView" layoutX="38.0" layoutY="250.0" prefHeight="265.0" prefWidth="587.0">
         <columns>
-          <TableColumn prefWidth="92.79999160766602" text="Property ID" />
-          <TableColumn prefWidth="100.0" text="Property Name" />
-            <TableColumn prefWidth="84.00004577636719" text="Location" />
-            <TableColumn prefWidth="85.5999755859375" text="Price" />
-            <TableColumn prefWidth="80.00006103515625" text="Size (sq ft)" />
-            <TableColumn prefWidth="74.4000244140625" text="Bedrooms" />
-            <TableColumn prefWidth="70.39996337890625" text="Status" />
+          <TableColumn fx:id="propertyIdTC" prefWidth="92.79999160766602" text="Property ID" />
+          <TableColumn fx:id="propertyNameTC" prefWidth="100.0" text="Property Name" />
+            <TableColumn fx:id="propertyLocationTC" prefWidth="84.00004577636719" text="Location" />
+            <TableColumn fx:id="propertyPriceTC" prefWidth="85.5999755859375" text="Price" />
+            <TableColumn fx:id="propertySizeTC" prefWidth="80.00006103515625" text="Size (sq ft)" />
+            <TableColumn fx:id="propertyBedroomsTC" prefWidth="74.4000244140625" text="Bedrooms" />
+            <TableColumn fx:id="propertyStatusTC" prefWidth="70.39996337890625" text="Status" />
         </columns>
       </TableView>
+      <Button layoutX="381.0" layoutY="174.0" mnemonicParsing="false" onAction="#showPropertyDetailsButtonOnAction" prefHeight="58.0" prefWidth="214.0" text="Show Property Details" />
    </children>
 </AnchorPane>
