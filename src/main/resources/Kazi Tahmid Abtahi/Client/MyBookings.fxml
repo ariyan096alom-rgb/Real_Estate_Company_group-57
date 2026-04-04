@@ -23,7 +23,7 @@
                 <TableColumn fx:id="statusTC" prefWidth="198.0" text="Status" />
             </columns>
         </TableView>
-
+        
         <Label fx:id="feedbackLabel" layoutX="40.0" layoutY="385.0" prefHeight="63.0" prefWidth="381.0" style="-fx-background-color: #f0f0f0;" text="Feedback..........." textFill="#616161" />
       <Button layoutX="469.0" layoutY="404.0" mnemonicParsing="false" onAction="#provideDocumentInformationButtonOnAction" text="Provide Document Information" />
     </children>
