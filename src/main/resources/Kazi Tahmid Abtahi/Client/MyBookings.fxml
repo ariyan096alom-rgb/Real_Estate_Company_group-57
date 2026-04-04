@@ -17,10 +17,10 @@
 
         <TableView fx:id="bookingsTableView" layoutX="40.0" layoutY="85.0" prefHeight="268.0" prefWidth="653.0">
             <columns>
-                <TableColumn fx:id="bookingIdTC" prefWidth="120.0" text="Booking ID" />
-                <TableColumn fx:id="propertyNameTC" prefWidth="200.0" text="Property Name" />
-                <TableColumn fx:id="bookingDateTC" prefWidth="150.0" text="Date Submitted" />
-                <TableColumn fx:id="statusTC" prefWidth="198.0" text="Status" />
+                <TableColumn fx:id="bookingIdTC" prefWidth="124.79995346069336" text="Booking ID" />
+                <TableColumn fx:id="propertyNameTC" prefWidth="220.80006408691406" text="Property Name" />
+                <TableColumn fx:id="bookingDateTC" prefWidth="151.2000732421875" text="Date Submitted" />
+                <TableColumn fx:id="statusTC" prefWidth="172.00006103515625" text="Status" />
             </columns>
         </TableView>
         
