@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.real_estate_company.mahhi.ProjectapprovalController">
+   <children>
+      <Label layoutX="63.0" layoutY="68.0" prefHeight="18.0" prefWidth="132.0" text="Pending Requests :" />
+      <VBox layoutX="260.0" layoutY="37.0" prefHeight="113.0" prefWidth="263.0">
+         <children>
+            <Label prefHeight="18.0" prefWidth="132.0" text="Budget :">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <Label layoutX="10.0" layoutY="10.0" prefHeight="18.0" prefWidth="132.0" text="Feasibility :">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <Label layoutX="10.0" layoutY="28.0" prefHeight="18.0" prefWidth="132.0" text="Required Resources :">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+         </children>
+      </VBox>
+      <HBox layoutX="260.0" layoutY="200.0" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="99.0" text="Approve" />
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="Reject" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

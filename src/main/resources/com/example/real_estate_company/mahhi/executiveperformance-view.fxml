@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.real_estate_company.mahhi.ExecutiveperformanceController">
+   <children>
+      <HBox alignment="CENTER_LEFT" layoutX="68.0" layoutY="30.0" prefHeight="82.0" prefWidth="352.0">
+         <children>
+            <Label prefHeight="30.0" prefWidth="117.0" text="Filter By Period :" />
+            <ComboBox prefWidth="150.0" />
+         </children>
+      </HBox>
+      <TableView layoutX="54.0" layoutY="138.0" prefHeight="200.0" prefWidth="490.0">
+        <columns>
+          <TableColumn prefWidth="123.20001220703125" text="Executive Name" />
+          <TableColumn prefWidth="104.79998779296875" text="Total Sales" />
+            <TableColumn prefWidth="103.20001220703125" text="Bookings" />
+            <TableColumn prefWidth="159.20001220703125" text="Customer Interactions" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
