@@ -1,4 +1,4 @@
-package KaziTahmidAbtahi.Client;
+package com.example.real_estate_company.KaziTahmidAbtahi.Client;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.TextArea;
