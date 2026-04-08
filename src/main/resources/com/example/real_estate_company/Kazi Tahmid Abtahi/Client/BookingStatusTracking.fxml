@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="514.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KaziTahmidAbtahi.Client.BookingStatusTrackingController">
+<AnchorPane prefHeight="514.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.real_estate_company.KaziTahmidAbtahi.Client.BookingStatusTrackingController">
    <children>
       <Label layoutX="105.0" layoutY="64.0" text="Booking Status &amp; Tracking" textFill="#2946c7">
          <font>
@@ -18,7 +17,7 @@
       <Label layoutX="105.0" layoutY="126.0" text="Select Booking:" />
       <ComboBox fx:id="bookingCB" layoutX="231.0" layoutY="122.0" onAction="#bookingSelectionOnAction" prefWidth="150.0" />
       <TextArea fx:id="displayTextArea" editable="false" layoutX="105.0" layoutY="167.0" prefHeight="142.0" prefWidth="499.0" />
-      <Button layoutX="105.0" layoutY="325.0" mnemonicParsing="false" onAction="#downloadSummaryButtonOnAction" prefHeight="30.0" prefWidth="190.0" text="Download Summary (.txt)" />
-      <Label fx:id="feedbackLabel" layoutX="105.0" layoutY="368.0" prefHeight="50.0" prefWidth="142.0" style="-fx-background-color: light grey;" text="Feedback......" />
+      <Button layoutX="115.0" layoutY="330.0" mnemonicParsing="false" onAction="#downloadSummaryButtonOnAction" prefHeight="30.0" prefWidth="190.0" text="Download Summary (Text File)" />
+      <Label fx:id="feedbackLabel" layoutX="105.0" layoutY="360.0" prefHeight="119.0" prefWidth="400.0" style="-fx-background-color: light grey;" text="Feedback......" />
    </children>
 </AnchorPane>

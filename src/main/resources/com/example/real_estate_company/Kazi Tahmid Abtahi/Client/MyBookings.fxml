@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KaziTahmidAbtahi.Client.MyBookingsController">
+<AnchorPane prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.real_estate_company.KaziTahmidAbtahi.Client.MyBookingsController">
     <children>
         <Label layoutX="65.0" layoutY="39.0" text="My Bookings" textFill="#2846bf">
             <font>

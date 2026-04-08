@@ -8,26 +8,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="550.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KaziTahmidAbtahi.FinanceOfficer.ProcessCancellationsController">
+<AnchorPane prefHeight="550.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.real_estate_company.KaziTahmidAbtahi.FinanceOfficer.ProcessCancellationsController">
     <children>
         <Label layoutX="70.0" layoutY="40.0" text="Process Cancellations &amp; Refunds" textFill="#2f46b9">
             <font>
                 <Font name="System Bold" size="20.0" />
             </font>
         </Label>
-        <Label layoutX="70.0" layoutY="100.0" prefHeight="30.0" prefWidth="166.0" text="Select Cancellation Request:" />
-        <ComboBox fx:id="cancellationRequestCB" layoutX="233.0" layoutY="97.0" onAction="#viewRequestDetailsOnAction" prefHeight="35.0" prefWidth="173.0" />
-        <Label layoutX="70.0" layoutY="145.0" text="Client &amp; Reason:" />
-        <TextArea fx:id="reasonTextArea" editable="false" layoutX="173.0" layoutY="150.0" prefHeight="90.0" prefWidth="498.0" />
-        <Label layoutX="70.0" layoutY="266.0" text="Time Since Booking (Days):" />
-        <TextField fx:id="daysSinceBookingTF" editable="false" layoutX="219.0" layoutY="265.0" prefHeight="26.0" prefWidth="143.0" />
-        <Label layoutX="376.0" layoutY="269.0" text="Total Paid So Far:" />
-        <TextField fx:id="totalPaidTF" editable="false" layoutX="483.0" layoutY="265.0" prefWidth="180.0" />
-        <Button layoutX="439.0" layoutY="308.0" mnemonicParsing="false" onAction="#calculateRefundButtonOnAction" prefHeight="30.0" prefWidth="150.0" text="Calculate Refund" />
-        <Label layoutX="69.0" layoutY="315.0" text="Calculated Refund Amount:" />
-        <TextField fx:id="refundAmountTF" editable="false" layoutX="223.0" layoutY="311.0" prefWidth="180.0" />
-        <Button layoutX="70.0" layoutY="375.0" mnemonicParsing="false" onAction="#approveCancellationButtonOnAction" prefHeight="35.0" prefWidth="218.0" text="Approve Cancellation" />
-        <Button layoutX="320.0" layoutY="375.0" mnemonicParsing="false" onAction="#rejectCancellationButtonOnAction" prefHeight="35.0" prefWidth="218.0" text="Reject Cancellation" />
-        <Label fx:id="feedbackLabel" layoutX="91.0" layoutY="439.0" prefHeight="68.0" prefWidth="487.0" style="-fx-background-color: light grey;" text="Feedback......" />
+        <ComboBox fx:id="cancellationRequestCB" layoutX="71.0" layoutY="216.0" onAction="#viewRequestDetailsOnAction" prefHeight="35.0" prefWidth="218.0" promptText="Select Cancellation Request" />
+        <Label layoutX="70.0" layoutY="106.0" text="Client &amp; Reason:" />
+        <TextArea fx:id="reasonTextArea" editable="false" layoutX="173.0" layoutY="106.0" prefHeight="90.0" prefWidth="498.0" />
+        <TextField fx:id="daysSinceBookingTF" editable="false" layoutX="70.0" layoutY="264.0" prefHeight="30.0" prefWidth="180.0" promptText="Time Since Booking (Days)" />
+        <TextField fx:id="totalPaidTF" editable="false" layoutX="305.0" layoutY="266.0" prefHeight="26.0" prefWidth="180.0" promptText="Total Paid So Far" />
+        <Button layoutX="305.0" layoutY="307.0" mnemonicParsing="false" onAction="#calculateRefundButtonOnAction" prefHeight="30.0" prefWidth="150.0" text="Calculate Refund" />
+        <TextField fx:id="refundAmountTF" editable="false" layoutX="70.0" layoutY="310.0" prefWidth="180.0" promptText="Calculated Refund Amount" />
+        <Button layoutX="101.0" layoutY="454.0" mnemonicParsing="false" onAction="#approveCancellationButtonOnAction" prefHeight="35.0" prefWidth="218.0" text="Approve Cancellation" />
+        <Button layoutX="371.0" layoutY="454.0" mnemonicParsing="false" onAction="#rejectCancellationButtonOnAction" prefHeight="35.0" prefWidth="218.0" text="Reject Cancellation" />
+        <Label fx:id="feedbackLabel" layoutX="75.0" layoutY="351.0" prefHeight="68.0" prefWidth="487.0" style="-fx-background-color: light grey;" text="Feedback......" />
     </children>
 </AnchorPane>

@@ -7,21 +7,21 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="514.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KaziTahmidAbtahi.FinanceOfficer.ApproveRejectBookingController">
+<AnchorPane prefHeight="514.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.real_estate_company.KaziTahmidAbtahi.FinanceOfficer.ApproveRejectBookingController">
     <children>
         <Label layoutX="78.0" layoutY="59.0" text="Approve / Reject Bookings" textFill="#2f46b9">
             <font>
                 <Font name="System Bold" size="20.0" />
             </font>
         </Label>
-        <Label layoutX="78.0" layoutY="115.0" text="Select Booking (Verified Docs Only):" />
+        <Label layoutX="78.0" layoutY="115.0" text="Select Booking (Verified Documents):" />
         <ComboBox fx:id="verifiedBookingCB" layoutX="305.0" layoutY="111.0" prefWidth="250.0" />
-        <Label layoutX="78.0" layoutY="165.0" text="Initial Payment Received?:" />
-        <ComboBox fx:id="paymentReceivedCB" layoutX="305.0" layoutY="161.0" prefWidth="150.0" />
-        <Label layoutX="78.0" layoutY="215.0" text="Rejection Reason (If applicable):" />
+        <Label layoutX="78.0" layoutY="165.0" text="Initial Payment Received:" />
+        <ComboBox fx:id="paymentReceivedCB" layoutX="305.0" layoutY="161.0" prefHeight="26.0" prefWidth="252.0" />
+        <Label layoutX="78.0" layoutY="215.0" text="Rejection Reason :" />
         <TextField fx:id="rejectionReasonTF" layoutX="305.0" layoutY="210.0" prefHeight="26.0" prefWidth="250.0" />
-        <Button layoutX="139.0" layoutY="273.0" mnemonicParsing="false" onAction="#approveBookingButtonOnAction" prefHeight="40.0" prefWidth="150.0" text="Approve Booking" />
-        <Button layoutX="355.0" layoutY="273.0" mnemonicParsing="false" onAction="#rejectBookingButtonOnAction" prefHeight="40.0" prefWidth="150.0" text="Reject Booking" />
+        <Button graphicTextGap="0.0" layoutX="139.0" layoutY="273.0" mnemonicParsing="false" onAction="#approveBookingButtonOnAction" prefHeight="40.0" prefWidth="150.0" text="Approve Booking" />
+        <Button graphicTextGap="0.0" layoutX="355.0" layoutY="273.0" mnemonicParsing="false" onAction="#rejectBookingButtonOnAction" prefHeight="40.0" prefWidth="150.0" text="Reject Booking" />
         <Label fx:id="feedbackLabel" layoutX="105.0" layoutY="355.0" prefHeight="95.0" prefWidth="420.0" style="-fx-background-color: light grey;" text="Feedback......" />
     </children>
 </AnchorPane>

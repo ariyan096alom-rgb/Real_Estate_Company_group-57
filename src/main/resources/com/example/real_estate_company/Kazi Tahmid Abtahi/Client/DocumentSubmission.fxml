@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="574.0" prefWidth="857.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KaziTahmidAbtahi.Client.DocumentSubmissionController">
+<AnchorPane prefHeight="574.0" prefWidth="857.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.real_estate_company.KaziTahmidAbtahi.Client.DocumentSubmissionController">
    <children>
       <Label layoutX="129.0" layoutY="75.0" text="Provide Document Information" textFill="#3127bf">
          <font>

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="550.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KaziTahmidAbtahi.FinanceOfficer.RecordPaymentController">
+<AnchorPane prefHeight="550.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.real_estate_company.KaziTahmidAbtahi.FinanceOfficer.VerifyDocumentsController">
     <children>
         <Label layoutX="80.0" layoutY="45.0" text="Record Client Payment" textFill="#4156b7">
             <font>
@@ -19,13 +19,13 @@
         <ComboBox fx:id="clientBookingCB" layoutX="235.0" layoutY="106.0" prefWidth="250.0" />
         <Label layoutX="82.0" layoutY="149.0" text="Payment Type:" />
         <ComboBox fx:id="paymentTypeCB" layoutX="236.0" layoutY="151.0" prefWidth="250.0" />
-        <Label layoutX="80.0" layoutY="190.0" text="Amount Received:" />
+        <Label layoutX="79.0" layoutY="200.0" text="Amount Received:" />
         <TextField fx:id="amountTF" layoutX="235.0" layoutY="196.0" prefWidth="250.0" />
-        <Label layoutX="81.0" layoutY="230.0" text="Payment Date:" />
+        <Label layoutX="82.0" layoutY="245.0" text="Payment Date:" />
         <DatePicker fx:id="paymentDatePicker" layoutX="236.0" layoutY="241.0" prefWidth="250.0" />
-        <Label layoutX="80.0" layoutY="275.0" text="Payment Method:" />
+        <Label layoutX="80.0" layoutY="286.0" text="Payment Method:" />
         <ComboBox fx:id="paymentMethodCB" layoutX="239.0" layoutY="286.0" prefWidth="250.0" />
-        <Label layoutX="80.0" layoutY="315.0" text="Transaction Reference:" />
+        <Label layoutX="82.0" layoutY="335.0" text="Transaction Reference:" />
         <TextField fx:id="transactionRefTF" layoutX="239.0" layoutY="331.0" prefWidth="250.0" />
         <Button layoutX="84.0" layoutY="410.0" mnemonicParsing="false" onAction="#recordPaymentButtonOnAction" prefHeight="79.0" prefWidth="182.0" text="Record Payment &amp; Receipt" />
         <Label fx:id="feedbackLabel" layoutX="342.0" layoutY="389.0" prefHeight="121.0" prefWidth="280.0" style="-fx-background-color: light grey;" text="Feedback........." />

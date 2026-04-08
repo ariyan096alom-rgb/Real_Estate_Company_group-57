@@ -9,18 +9,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="550.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KaziTahmidAbtahi.FinanceOfficer.PendingBookingsController">
+<AnchorPane prefHeight="550.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.real_estate_company.KaziTahmidAbtahi.FinanceOfficer.PendingBookingsController">
     <children>
         <Label layoutX="45.0" layoutY="35.0" text="Manage Pending Booking Requests" textFill="#2f46b9">
             <font>
                 <Font name="System Bold" size="20.0" />
             </font>
         </Label>
-        <DatePicker fx:id="startDatePicker" layoutX="45.0" layoutY="85.0" prefHeight="26.0" prefWidth="130.0" promptText="Start Date" />
-        <DatePicker fx:id="endDatePicker" layoutX="185.0" layoutY="85.0" prefHeight="26.0" prefWidth="130.0" promptText="End Date" />
-        <ComboBox fx:id="paymentPlanFilterCB" layoutX="325.0" layoutY="85.0" prefWidth="150.0" promptText="Payment Plan" />
-        <Button layoutX="490.0" layoutY="85.0" mnemonicParsing="false" onAction="#filterBookingsButtonOnAction" prefHeight="26.0" prefWidth="90.0" text="Filter List" />
-        <TableView fx:id="pendingBookingsTableView" layoutX="45.0" layoutY="130.0" prefHeight="350.0" prefWidth="650.0">
+        <DatePicker fx:id="startDatePicker" layoutX="81.0" layoutY="85.0" prefHeight="26.0" prefWidth="158.0" promptText="Start Date" />
+        <DatePicker fx:id="endDatePicker" layoutX="81.0" layoutY="141.0" prefHeight="26.0" prefWidth="158.0" promptText="End Date" />
+        <ComboBox fx:id="paymentPlanFilterCB" layoutX="325.0" layoutY="85.0" prefHeight="30.0" prefWidth="150.0" promptText="Payment Plan" />
+        <Button layoutX="325.0" layoutY="127.0" mnemonicParsing="false" onAction="#filterBookingsButtonOnAction" prefHeight="52.0" prefWidth="150.0" text="Filter List" />
+        <TableView fx:id="pendingBookingsTableView" layoutX="63.0" layoutY="185.0" prefHeight="325.0" prefWidth="616.0">
             <columns>
                 <TableColumn fx:id="bookingIdTC" prefWidth="80.0" text="Booking ID" />
                 <TableColumn fx:id="clientNameTC" prefWidth="110.0" text="Client Name" />

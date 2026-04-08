@@ -9,33 +9,33 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="550.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KaziTahmidAbtahi.FinanceOfficer.InvoiceAndPaymentScheduleController">
+<AnchorPane prefHeight="550.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.real_estate_company.KaziTahmidAbtahi.FinanceOfficer.InvoiceAndPaymentScheduleController">
     <children>
         <Label layoutX="79.0" layoutY="46.0" text="Generate Invoice and Payment Schedule" textFill="#3b368e">
             <font>
                 <Font name="System Bold" size="20.0" />
             </font>
         </Label>
-        <Label layoutX="81.0" layoutY="111.0" text="Select Approved Booking:" />
+        <Label layoutX="95.0" layoutY="111.0" text="Select Approved Booking:" />
         <ComboBox fx:id="bookingCB" layoutX="269.0" layoutY="107.0" prefWidth="200.0" />
 
-        <Label layoutX="80.0" layoutY="155.0" text="Down Payment % (10-30):" />
+        <Label layoutX="94.0" layoutY="155.0" text="Down Payment :" />
         <TextField fx:id="downPaymentTF" layoutX="269.0" layoutY="151.0" prefWidth="200.0" />
 
-        <Label layoutX="81.0" layoutY="199.0" text="Number of Installments:" />
+        <Label layoutX="94.0" layoutY="200.0" text="Number of Installments:" />
         <TextField fx:id="installmentsTF" layoutX="270.0" layoutY="196.0" prefWidth="200.0" />
 
-        <Label layoutX="81.0" layoutY="245.0" text="Installment Frequency:" />
+        <Label layoutX="94.0" layoutY="247.0" text="Installment Frequency:" />
         <ComboBox fx:id="frequencyCB" layoutX="269.0" layoutY="243.0" prefWidth="200.0" />
 
-        <Label layoutX="81.0" layoutY="290.0" text="Start Date:" />
+        <Label layoutX="95.0" layoutY="290.0" text="Start Date:" />
         <DatePicker fx:id="startDatePicker" layoutX="269.0" layoutY="286.0" prefWidth="200.0" />
 
-        <Button layoutX="495.0" layoutY="217.0" mnemonicParsing="false" onAction="#calculateScheduleButtonOnAction" prefHeight="40.0" prefWidth="127.0" text="Calculate Schedule" />
+        <Button layoutX="516.0" layoutY="261.0" mnemonicParsing="false" onAction="#calculateScheduleButtonOnAction" prefHeight="58.0" prefWidth="138.0" text="Calculate Schedule" />
 
-        <TextArea fx:id="previewTextArea" editable="false" layoutX="80.0" layoutY="340.0" prefHeight="100.0" prefWidth="554.0" />
+        <TextArea fx:id="previewTextArea" editable="false" layoutX="105.0" layoutY="406.0" prefHeight="113.0" prefWidth="550.0" />
 
-        <Button layoutX="495.0" layoutY="279.0" mnemonicParsing="false" onAction="#generateInvoiceButtonOnAction" prefHeight="40.0" prefWidth="127.0" text="Save &amp; Generate" />
-        <Label fx:id="feedbackLabel" layoutX="80.0" layoutY="449.0" prefHeight="68.0" prefWidth="378.0" style="-fx-background-color: light grey;" text="Feedback........." />
+        <Button layoutX="516.0" layoutY="342.0" mnemonicParsing="false" onAction="#generateInvoiceButtonOnAction" prefHeight="49.0" prefWidth="138.0" text="Save &amp; Generate" />
+        <Label fx:id="feedbackLabel" layoutX="105.0" layoutY="324.0" prefHeight="68.0" prefWidth="378.0" style="-fx-background-color: light grey;" text="Feedback........." />
     </children>
 </AnchorPane>
