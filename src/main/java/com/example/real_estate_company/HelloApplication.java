@@ -10,10 +10,22 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
+        // Use the relative path starting from / (which represents the resources folder)
+        // Make sure the path below matches your folder names exactly!
+        String fxmlPath = "/com/example/real_estate_company/KaziTahmidAbtahi/Main/Login.fxml";
+
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxmlPath));
+
+        if (fxmlLoader.getLocation() == null) {
+            System.err.println("Error: Could not find FXML file at " + fxmlPath);
+            return;
+        }
+
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("Real Estate System - Login");
         stage.setScene(scene);
         stage.show();
     }
 }
+
+
