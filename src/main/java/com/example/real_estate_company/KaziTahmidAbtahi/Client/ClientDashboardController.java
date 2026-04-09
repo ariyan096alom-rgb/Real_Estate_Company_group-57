@@ -1,6 +1,6 @@
 package com.example.real_estate_company.KaziTahmidAbtahi.Client;
 
-import com.example.real_estate_company.KaziTahmidAbtahi.Main.Client;
+import com.example.real_estate_company.Main.Client;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;

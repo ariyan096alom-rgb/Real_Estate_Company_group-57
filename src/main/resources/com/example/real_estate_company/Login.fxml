@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane depthTest="DISABLE" nodeOrientation="LEFT_TO_RIGHT" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.real_estate_company.KaziTahmidAbtahi.Main.LoginController">
+<AnchorPane depthTest="DISABLE" nodeOrientation="LEFT_TO_RIGHT" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.real_estate_company.LoginController">
     <children>
 
         <Label layoutX="100.0" layoutY="151.0" text="Email Address:" textFill="#333333" />
@@ -18,17 +18,13 @@
         <Label layoutX="100.0" layoutY="200.0" text="Password:" textFill="#333333" />
         <PasswordField fx:id="enterPasswordTF" layoutX="198.0" layoutY="193.0" prefHeight="30.0" prefWidth="290.0" promptText="Enter your password" />
 
-        <Button layoutX="239.0" layoutY="283.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #2f3e58;" text="Login" textFill="WHITE">
+        <Button layoutX="101.0" layoutY="287.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #2f3e58;" text="Login" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
         </Button>
 
-        <Label fx:id="feedbackLabel" alignment="CENTER" layoutX="100.0" layoutY="355.0" prefHeight="20.0" prefWidth="400.0" textFill="#d31717">
-            <font>
-                <Font name="System Bold" size="12.0" />
-            </font>
-        </Label>
+        <Label fx:id="feedbackLabel" alignment="TOP_LEFT" layoutX="100.0" layoutY="355.0" prefHeight="20.0" prefWidth="400.0" text="Prompt...." textFill="#361818" />
       <Label layoutX="153.0" layoutY="34.0" prefHeight="48.0" prefWidth="313.0" text="Real Estate Management System " textFill="#1814d4">
          <font>
             <Font name="System Bold" size="20.0" />
@@ -41,7 +37,7 @@
       </Label>
       <ComboBox fx:id="selectUserTypeCB" layoutX="199.0" layoutY="243.0" prefWidth="150.0" />
       <Label layoutX="100.0" layoutY="247.0" text="Select User Type:" textFill="#333333" />
-      <Button layoutX="229.0" layoutY="329.0" mnemonicParsing="false" onAction="#registerNewAccountOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: #2f3e58;" text="Register New Account" textFill="WHITE">
+      <Button layoutX="349.0" layoutY="287.0" mnemonicParsing="false" onAction="#registerNewAccountOnAction" prefHeight="35.0" prefWidth="169.0" style="-fx-background-color: #2f3e58;" text="Register New Account" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
