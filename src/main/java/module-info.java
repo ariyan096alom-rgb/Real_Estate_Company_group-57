@@ -1,6 +1,7 @@
 module com.example.real_estate_company {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.desktop;
 
 
     opens com.example.real_estate_company to javafx.fxml;
