@@ -16,12 +16,10 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Button layoutX="38.0" layoutY="177.0" mnemonicParsing="false" onAction="#filterPropertiesButtonOnAction" prefHeight="26.0" prefWidth="242.0" text="Filter Properties" />
-      <ComboBox fx:id="locationCB" layoutX="38.0" layoutY="123.0" prefHeight="26.0" prefWidth="188.0" promptText="Location" />
-      <ComboBox fx:id="minBedroomsCB" layoutX="265.0" layoutY="123.0" prefHeight="26.0" prefWidth="188.0" promptText="Min Bedrooms" />
-      <TextField fx:id="maxPriceTF" layoutX="38.0" layoutY="85.0" prefHeight="26.0" prefWidth="188.0" promptText="Max Price" />
-      <ComboBox fx:id="propertyTypeCB" layoutX="265.0" layoutY="85.0" prefHeight="26.0" prefWidth="188.0" promptText="Property Type" />
-      <ComboBox fx:id="sortingFilterCB" layoutX="38.0" layoutY="211.0" prefHeight="26.0" prefWidth="242.0" promptText="Sort by Price" />
+      <Button layoutX="38.0" layoutY="219.0" mnemonicParsing="false" onAction="#filterPropertiesButtonOnAction" prefHeight="26.0" prefWidth="242.0" text="Filter Properties" />
+      <ComboBox fx:id="locationCB" layoutX="203.0" layoutY="120.0" prefHeight="26.0" prefWidth="188.0" promptText="Location" />
+      <TextField fx:id="maxPriceTF" layoutX="231.0" layoutY="83.0" prefHeight="26.0" prefWidth="188.0" promptText="Max Price" />
+      <ComboBox fx:id="propertyTypeCB" layoutX="206.0" layoutY="161.0" prefHeight="26.0" prefWidth="188.0" promptText="Property Type" />
       <TableView fx:id="propertyDataTableView" layoutX="38.0" layoutY="250.0" prefHeight="265.0" prefWidth="587.0">
         <columns>
           <TableColumn fx:id="propertyIdTC" prefWidth="92.79999160766602" text="Property ID" />
@@ -33,6 +31,9 @@
             <TableColumn fx:id="propertyStatusTC" prefWidth="70.39996337890625" text="Status" />
         </columns>
       </TableView>
-      <Button layoutX="381.0" layoutY="174.0" mnemonicParsing="false" onAction="#showPropertyDetailsButtonOnAction" prefHeight="58.0" prefWidth="214.0" text="Show Property Details" />
+      <Button layoutX="421.0" layoutY="174.0" mnemonicParsing="false" onAction="#showPropertyDetailsButtonOnAction" prefHeight="58.0" prefWidth="174.0" text="Show Property Details" />
+      <Label layoutX="38.0" layoutY="88.0" prefHeight="18.0" prefWidth="173.0" text="Enter Maximum Price Amount:" />
+      <Label layoutX="38.0" layoutY="125.0" text="Enter Preffered Location:" />
+      <Label layoutX="38.0" layoutY="166.0" text="Enter Preffered Property Type:" />
    </children>
 </AnchorPane>

@@ -1,4 +1,4 @@
-package com.example.real_estate_company.Main;
+package com.example.real_estate_company;
 
 import java.io.Serializable;
 

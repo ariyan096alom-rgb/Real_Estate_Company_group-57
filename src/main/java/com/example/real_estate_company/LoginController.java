@@ -1,20 +1,17 @@
 package com.example.real_estate_company;
 
+import com.example.real_estate_company.KaziTahmidAbtahi.Client.Client;
 import com.example.real_estate_company.KaziTahmidAbtahi.Client.ClientDashboardController;
-import com.example.real_estate_company.Main.Client;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
+import java.util.ArrayList;
 
 public class LoginController {
+
     @javafx.fxml.FXML
     private ComboBox<String> selectUserTypeCB;
     @javafx.fxml.FXML
@@ -23,14 +20,15 @@ public class LoginController {
     private Label feedbackLabel;
     @javafx.fxml.FXML
     private TextField enterEmailAddressTF;
+
     @javafx.fxml.FXML
-
-
-
-    public void initialize(){
-        selectUserTypeCB.getItems().addAll("Managing Director"," Sales Manager","CLient","Finance Officer","Legal Officer"," Site Engineer","Project Manager","Sales Executive");
+    public void initialize() {
+        selectUserTypeCB.getItems().addAll(
+                "Managing Director", "Sales Manager", "Client",
+                "Finance Officer", "Legal Officer", "Site Engineer",
+                "Project Manager", "Sales Executive"
+        );
     }
-
 
     @javafx.fxml.FXML
     public void loginButtonOnAction(ActionEvent actionEvent) {
@@ -38,105 +36,75 @@ public class LoginController {
         String password = enterPasswordTF.getText();
         String userType = selectUserTypeCB.getValue();
 
-        if (email.isEmpty() || password.isEmpty() || userType == "null") {
+        if (email.isEmpty() || password.isEmpty() || userType == null) {
             feedbackLabel.setText("Fill all the informations properly.");
-
-            Alert emptyalert = new Alert(Alert.AlertType.ERROR);
-            emptyalert.setContentText("Fill all the informations properly.");
-            emptyalert.show();
+            Helper.showAlert("Validation Error", "Please fill out all fields and select a user type.");
             return;
         }
 
         if (!email.contains("@")) {
             feedbackLabel.setText("Email format is incorrect.");
-            Alert formatalert = new Alert(Alert.AlertType.ERROR);
-            formatalert.setContentText("Fill all the informations properly.");
-            formatalert.show();
+            Helper.showAlert("Validation Error", "Email must contain '@'.");
             return;
-
         }
 
         if (password.length() < 8 || password.length() > 16) {
             feedbackLabel.setText("Password length should be between 8-16 digits.");
-
-            Alert lenghtalert = new Alert(Alert.AlertType.ERROR);
-            lenghtalert.setContentText("Password length should be between 8-16 digits.");
-            lenghtalert.show();
+            Helper.showAlert("Validation Error", "Password length should be between 8-16 characters.");
             return;
-
         }
-// Reading the binary file the faculty's way
-        Client loggedInClient = null;
 
         if (userType.equals("Client")) {
-            FileInputStream fis = null;
-            ObjectInputStream ois = null;
-            try {
-                File f = new File("ClientData.bin");
-                if (f.exists()) {
-                    fis = new FileInputStream(f);
-                    ois = new ObjectInputStream(fis);
 
-                    // Infinite loop to read objects
-                    while (true) {
-                        Client c = (Client) ois.readObject();
-                        // If we find a match, save it and break the loop
-                        if (c.getEmailAddress().equals(email) && c.getPassword().equals(password)) {
-                            loggedInClient = c;
-                            break;
-                        }
-                    }
+            ArrayList<Client> clientList = new ArrayList<>();
+            try {
+                Helper.loadFrom("ClientData.bin", clientList);
+            } catch (IOException e) {
+                Helper.showAlert("System Error", "Could not access client data.");
+                return;
+            }
+
+            Client loggedInClient = null;
+
+            for (Client c : clientList) {
+                if (c.getEmailAddress().equals(email) && c.getPassword().equals(password)) {
+                    loggedInClient = c;
+                    break;
                 }
-            } catch (Exception e) {
-                // The file ended, close the stream safely
+            }
+
+            if (loggedInClient == null) {
+                feedbackLabel.setText("Invalid Informations");
+                Helper.showAlert("Login Failed", "Incorrect email or password.");
+            } else {
                 try {
-                    if (ois != null) ois.close();
-                } catch (IOException ex) {
-                    // Ignored, just like faculty code
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/real_estate_company/KaziTahmidAbtahi/Client/ClientDashboard.fxml"));
+                    Scene scene = new Scene(fxmlLoader.load());
+
+                    ClientDashboardController receiverController = fxmlLoader.getController();
+                    receiverController.initData(loggedInClient);
+
+                    Helper.setScene(actionEvent, scene);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Helper.showAlert("Navigation Error", "Could not load the client dashboard.");
                 }
             }
-        }
-
-        // Success or Failure
-        if (loggedInClient == null) {
-            // Failed login
-            feedbackLabel.setText("Invalid Informations");
-            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-            errorAlert.setContentText("Invalid Informations");
-            errorAlert.show();
         } else {
-            // Successful login - Load Dashboard
-            try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/real_estate_company/KaziTahmidAbtahi/Client/ClientDashboard.fxml"));
-                Scene scene = new Scene(fxmlLoader.load());
-
-                // Pass the data to the next controller!
-                ClientDashboardController receiverController = fxmlLoader.getController();
-                receiverController.initData(loggedInClient);
-
-                // Get current window and swap the scene
-                Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-                currentStage.setTitle("Client Dashboard");
-                currentStage.setScene(scene);
-                currentStage.show();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            Helper.showAlert("Under Construction", "Login for " + userType + " is not set up yet.");
         }
-    } // End of loginButtonOnAction
+    }
 
-    // Filled in the Registration button logic so you can get to the next screen!
     @javafx.fxml.FXML
     public void registerNewAccountOnAction(ActionEvent actionEvent) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/real_estate_company/KaziTahmidAbtahi/Client/ClientRegistration.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
-            Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            currentStage.setTitle("Client Registration");
-            currentStage.setScene(scene);
-            currentStage.show();
+            Helper.setScene(actionEvent, scene);
         } catch (Exception e) {
             e.printStackTrace();
+            Helper.showAlert("Error", "Could not load the registration screen.");
         }
     }
 }

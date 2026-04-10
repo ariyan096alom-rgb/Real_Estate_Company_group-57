@@ -1,13 +1,15 @@
-package com.example.real_estate_company.Main;
+package com.example.real_estate_company.KaziTahmidAbtahi.Client;
+
+import com.example.real_estate_company.User;
 
 import java.time.LocalDate;
 
 public class Client extends User {
     private LocalDate DOB;
-    private int phoneNumber;
+    private String phoneNumber;
     private String gender;
 
-    public Client(int userId, String userName, String emailAddress, String password, LocalDate DOB, String gender, int phoneNumber) {
+    public Client(int userId, String userName, String emailAddress, String password, LocalDate DOB, String gender, String phoneNumber) {
         super(userId, userName, emailAddress, password);
         this.DOB = DOB;
         this.gender = gender;
@@ -22,11 +24,11 @@ public class Client extends User {
         this.DOB = DOB;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
