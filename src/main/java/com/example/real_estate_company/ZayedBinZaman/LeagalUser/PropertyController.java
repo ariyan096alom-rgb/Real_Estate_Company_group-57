@@ -52,4 +52,12 @@ public class PropertyController {
             ex.printStackTrace();
         }
     }
+
+    @FXML
+    public void legalStautsOA(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void verifyOwnershipOA(ActionEvent actionEvent) {
+    }
 }

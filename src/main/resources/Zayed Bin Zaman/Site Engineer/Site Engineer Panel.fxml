@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.real_estate_company.ZayedBinZaman.SiteEngineer.SiteEngineerController">
     <children>
         <VBox layoutX="50.0" layoutY="30.0" spacing="10.0">
-            <Label text="Site Engineer Panel"/>
-            <TextField promptText="Engineer Name"/>
-            <TextField promptText="Project Name"/>
-            <Button text="Monitor Construction"/>
-            <Button text="Approve Design"/>
-            <Button text="Generate Report"/>
-            <Button text="Track Material Usage"/>
-            <TextArea prefHeight="100.0"/>
+            <Label text="Site Engineer Panel" />
+            <TextField fx:id="engineerName" promptText="Engineer Name" />
+            <TextField fx:id="projectName" promptText="Project Name" />
+            <Button onAction="#monitorOA" text="Monitor Construction" />
+            <Button onAction="#approveOA" text="Approve Design" />
+            <Button onAction="#generateOA" text="Generate Report" />
+            <Button onAction="#taskOA" text="Track Material Usage" />
+            <TextArea fx:id="output" prefHeight="100.0" />
         </VBox>
     </children>
 </AnchorPane>

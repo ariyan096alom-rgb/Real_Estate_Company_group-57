@@ -1,24 +1,28 @@
 package com.example.real_estate_company.JakiaJumana;
 
 import javafx.event.ActionEvent;
+<<<<<<< HEAD
+=======
+import javafx.fxml.FXML;
+>>>>>>> 2ece45b2a45e4016886beb4162e4edbab72789fe
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 
 public class projectVisitController
 {
-    @javafx.fxml.FXML
+    @FXML
     private ComboBox selectTimeCB;
-    @javafx.fxml.FXML
+    @FXML
     private DatePicker selectDateDatePicker;
-    @javafx.fxml.FXML
+    @FXML
     private Label propertynNameLabel;
 
-    @javafx.fxml.FXML
+    @FXML
     public void initialize() {
     }
 
-    @javafx.fxml.FXML
+    @FXML
     public void confirmVisitOnAction(ActionEvent actionEvent) {
     }
 }
