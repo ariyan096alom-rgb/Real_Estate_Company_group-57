@@ -25,8 +25,6 @@ public class ManageBookingsController
     private DatePicker filterEndDatePicker;
     @javafx.fxml.FXML
     private TableColumn bookingIdTC;
-    @javafx.fxml.FXML
-    private TableColumn requestDateTC;
 
     @javafx.fxml.FXML
     public void initialize() {

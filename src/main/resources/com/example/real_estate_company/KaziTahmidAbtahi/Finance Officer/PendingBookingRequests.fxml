@@ -26,12 +26,11 @@
 
         <TableView fx:id="pendingBookingsTableView" layoutX="31.0" layoutY="285.0" prefHeight="250.0" prefWidth="650.0">
             <columns>
-                <TableColumn fx:id="bookingIdTC" prefWidth="75.0" text="Booking ID" />
-                <TableColumn fx:id="clientNameTC" prefWidth="105.0" text="Client Name" />
-                <TableColumn fx:id="propertyNameTC" prefWidth="110.0" text="Property Name" />
-                <TableColumn fx:id="paymentPlanTC" prefWidth="120.0" text="Payment Plan" />
-                <TableColumn fx:id="docStatusTC" prefWidth="140.0" text="Submission Status" />
-                <TableColumn fx:id="requestDateTC" prefWidth="99.0" text="Request Date" />
+                <TableColumn fx:id="bookingIdTC" prefWidth="98.39998817443848" text="Booking ID" />
+                <TableColumn fx:id="clientNameTC" prefWidth="144.0" text="Client Name" />
+                <TableColumn fx:id="propertyNameTC" prefWidth="130.4000244140625" text="Property Name" />
+                <TableColumn fx:id="paymentPlanTC" prefWidth="124.80001831054688" text="Payment Plan" />
+                <TableColumn fx:id="docStatusTC" prefWidth="153.60009765625" text="Submission Status" />
             </columns>
         </TableView>
 
