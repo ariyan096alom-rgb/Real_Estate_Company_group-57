@@ -20,5 +20,6 @@
       <Label layoutX="98.0" layoutY="175.0" text="Select Time: " />
       <ComboBox fx:id="selectTimeCB" layoutX="178.0" layoutY="171.0" prefWidth="150.0" />
       <Button layoutX="113.0" layoutY="232.0" mnemonicParsing="false" onAction="#confirmVisitOnAction" prefHeight="54.0" prefWidth="121.0" text="Confirm Visit" />
+      <Button layoutX="106.0" layoutY="328.0" mnemonicParsing="false" onAction="#returnToPropertyDetailsButtonOnAction" text="&lt;&lt;Previous" />
    </children>
 </AnchorPane>

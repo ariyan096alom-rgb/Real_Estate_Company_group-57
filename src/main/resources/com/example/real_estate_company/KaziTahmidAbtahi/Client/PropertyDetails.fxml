@@ -14,11 +14,12 @@
          </font>
       </Label>
       <HBox layoutX="250.0" layoutY="130.0" prefHeight="30.0" prefWidth="200.0" />
-      <Button layoutX="98.0" layoutY="428.0" mnemonicParsing="false" onAction="#scheduleSiteVisitButtonOnAction" prefHeight="26.0" prefWidth="266.0" text="Schedule Site Visit" />
-      <Button layoutX="380.0" layoutY="428.0" mnemonicParsing="false" onAction="#submitBookingRequestButtonOnAction" prefHeight="26.0" prefWidth="266.0" text="Submit Booking Request" />
+      <Button layoutX="98.0" layoutY="418.0" mnemonicParsing="false" onAction="#scheduleSiteVisitButtonOnAction" prefHeight="26.0" prefWidth="266.0" text="Schedule Site Visit" />
+      <Button layoutX="380.0" layoutY="417.0" mnemonicParsing="false" onAction="#submitBookingRequestButtonOnAction" prefHeight="26.0" prefWidth="266.0" text="Submit Booking Request" />
       <Label layoutX="98.0" layoutY="122.0" text="Information about the selected property:" />
       <Label layoutX="98.0" layoutY="336.0" prefHeight="18.0" prefWidth="34.0" text="Price:" />
       <Label fx:id="propertyDetailsLabel" layoutX="98.0" layoutY="152.0" prefHeight="170.0" prefWidth="574.0" style="-fx-background-color: #cacacc;" textFill="#030310" />
       <Label fx:id="propertyPriceLabel" layoutX="146.0" layoutY="336.0" prefHeight="18.0" prefWidth="122.0" style="-fx-background-color: #cacacc;" />
+      <Button layoutX="98.0" layoutY="458.0" mnemonicParsing="false" onAction="#goBackToAvailablePropertiesButtonOnAction" text="&lt;&lt;Previous" />
    </children>
 </AnchorPane>

@@ -93,4 +93,17 @@ public class PropertyDetailsController {
         }
     }
 
+
+
+    @javafx.fxml.FXML
+    public void goBackToAvailablePropertiesButtonOnAction(ActionEvent actionEvent) {
+        try {
+            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/com/example/real_estate_company/KaziTahmidAbtahi/Client/PropertySearch.fxml"));
+            javafx.scene.Scene scene = new javafx.scene.Scene(loader.load());
+            Helper.setScene(actionEvent, scene);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Helper.showAlert("Error", "Could not go back to Search screen.");
+        }
+    }
 }

@@ -113,32 +113,44 @@ public class PropertySearchController {
         // Update TableView
         displayedProperties.setAll(filteredList);
     }
-        @javafx.fxml.FXML
-        public void showPropertyDetailsButtonOnAction(ActionEvent actionEvent) {
-            // 1. Get the selected property from the table
-            Property selectedProperty = propertyDataTableView.getSelectionModel().getSelectedItem();
 
-            // 2. Validate that the user actually clicked on a row
-            if (selectedProperty == null) {
-                Helper.showAlert("Selection Error", "Please select a property from the table first.");
-                return;
-            }
+    @javafx.fxml.FXML
+    public void showPropertyDetailsButtonOnAction(ActionEvent actionEvent) {
+        // 1. Get the selected property from the table
+        Property selectedProperty = propertyDataTableView.getSelectionModel().getSelectedItem();
 
-            // 3. Load the Property Details scene and pass the data
-            try {
-                javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/com/example/real_estate_company/KaziTahmidAbtahi/Client/PropertyDetails.fxml"));
-                javafx.scene.Scene scene = new javafx.scene.Scene(loader.load());
-
-                // 4. Get the controller and send the selected property!
-                PropertyDetailsController controller = loader.getController();
-                controller.initData(selectedProperty);
-
-                // 5. Switch the scene
-                Helper.setScene(actionEvent, scene);
-            } catch (IOException e) {
-                e.printStackTrace();
-                Helper.showAlert("Error", "Could not load the Property Details screen.");
-            }
+        // 2. Validate that the user actually clicked on a row
+        if (selectedProperty == null) {
+            Helper.showAlert("Selection Error", "Please select a property from the table first.");
+            return;
         }
 
+        // 3. Load the Property Details scene and pass the data
+        try {
+            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/com/example/real_estate_company/KaziTahmidAbtahi/Client/PropertyDetails.fxml"));
+            javafx.scene.Scene scene = new javafx.scene.Scene(loader.load());
+
+            // 4. Get the controller and send the selected property!
+            PropertyDetailsController controller = loader.getController();
+            controller.initData(selectedProperty);
+
+            // 5. Switch the scene
+            Helper.setScene(actionEvent, scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+            Helper.showAlert("Error", "Could not load the Property Details screen.");
+        }
     }
+
+    @javafx.fxml.FXML
+    public void goBackToDashboardButtonOnAction(ActionEvent actionEvent) {
+        try {
+            Helper.backToClientDashboard(actionEvent);
+        } catch (IOException e) {
+            // Print to console for you (the developer) to debug
+            e.printStackTrace();
+            // Show a popup to the user so they aren't confused
+            Helper.showAlert("Navigation Error", "Sorry, could not load the dashboard.");
+        }
+    }
+}
