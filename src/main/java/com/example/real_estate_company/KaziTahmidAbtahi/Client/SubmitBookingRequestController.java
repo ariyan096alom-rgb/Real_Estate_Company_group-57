@@ -107,4 +107,23 @@ public class SubmitBookingRequestController {
             System.out.println("Error updating property file: " + e.getMessage());
         }
     }
+
+
+
+    @javafx.fxml.FXML
+    public void returnToPropertyDetailsButtonOnAction(ActionEvent actionEvent) {
+        try {
+            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/com/example/real_estate_company/KaziTahmidAbtahi/Client/PropertyDetails.fxml"));
+            javafx.scene.Scene scene = new javafx.scene.Scene(loader.load());
+
+            // We MUST send the property data back to the details screen!
+            PropertyDetailsController controller = loader.getController();
+            controller.initData(currentProperty);
+
+            Helper.setScene(actionEvent, scene);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Helper.showAlert("Error", "Could not go back to Property Details.");
+        }
+    }
 }

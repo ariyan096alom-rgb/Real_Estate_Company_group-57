@@ -21,5 +21,6 @@
       <Button layoutX="107.0" layoutY="304.0" mnemonicParsing="false" onAction="#confirmBookingButtonOnAction" prefHeight="38.0" prefWidth="119.0" text="Confirm Booking" />
       <Label fx:id="feedbackLabel" layoutX="272.0" layoutY="297.0" prefHeight="90.0" prefWidth="370.0" style="-fx-background-color: light grey;" text="Feedback......." />
        <Button layoutX="457.0" layoutY="128.0" onAction="#showPaymentDetailsONAction" text="Show Payment Details" />
+      <Button layoutX="106.0" layoutY="471.0" mnemonicParsing="false" onAction="#returnToPropertyDetailsButtonOnAction" text="&lt;&lt;Previous" />
    </children>
 </AnchorPane>
