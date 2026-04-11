@@ -3,7 +3,6 @@ package com.example.real_estate_company.JakiaJumana;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
 import java.util.ArrayList;
@@ -19,7 +18,7 @@ public class ProjectViewController
     @javafx.fxml.FXML
     private TableColumn <Project, String>locationTableview;
     @javafx.fxml.FXML
-    private AnchorPane nameTextField;
+    private TextField nameTextField;
     @javafx.fxml.FXML
     private TableColumn <Project, Integer>priceTableview;
     @javafx.fxml.FXML
@@ -73,30 +72,31 @@ public class ProjectViewController
 
     @javafx.fxml.FXML
     public void createProjectOnAction(ActionEvent actionEvent) {
-        If (nameTextField.getText().isEmpty()){
+        if (nameTextField.getText().isEmpty()){
             errorText.setText("Enter Project Name!");
             return;
         }
 
-        If (priceTextfield.getText().isEmpty()){
+        if (priceTextfield.getText().isEmpty()){
             errorText.setText("Enter Price!");
             return;
         }
 
-        If (locationCombobox.getValue() == null){
+        if (locationCombobox.getValue() == null){
             errorText.setText("Enter location!");
             return;
         }
 
-        If (availabilityCombobox.getValue() == null){
+        if (availabilityCombobox.getValue() == null){
             errorText.setText("Enter availability!");
             return;
         }
 
-        for (Project dp: projects)(
-                if (dp. getProjectName.equals(nameTextField.getText())){
-                    errorText.setText("Project Name must be unique!");
-                    return;
+        for (Project dp : projects) {
+            if (dp.getProjectName().equals(nameTextField.getText())){
+                errorText.setText("Project Name must be unique!");
+                return;
+            }
         }
         Project dp = new Project(
                 nameTextField.getText(),
@@ -108,7 +108,7 @@ public class ProjectViewController
 
         projects.add(dp);
 
-        projectTableView.getItems().addAll(projects);
+        projectTableView.getItems().add(dp);
 //this or can use loop for adding
     }
 

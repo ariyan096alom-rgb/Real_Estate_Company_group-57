@@ -1,11 +1,8 @@
 package com.example.real_estate_company;
 
 import com.example.real_estate_company.KaziTahmidAbtahi.Client.Property;
-<<<<<<< HEAD
 import com.example.real_estate_company.mahhi.*;
-=======
 import com.example.real_estate_company.KaziTahmidAbtahi.FinanceOfficer.FinanceOfficer; // Importing the new model!
->>>>>>> 2ac478c33a71ad8835db5eeb1a29b32355017c94
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -70,7 +67,6 @@ public class DummyDataGenerator {
         } catch (IOException e) {
             System.out.println("Error generating Property data: " + e.getMessage());
         }
-<<<<<<< HEAD
 
         String companyFileName = "CompanyData.bin";
         File compFile = new File(companyFileName);
@@ -124,9 +120,6 @@ public class DummyDataGenerator {
             oos.writeObject(new ProjectData("Skyline Tower", "Jan 2026", 0.95));
             System.out.println("Success! ProjectData.bin created.");
         } catch (Exception e) { e.printStackTrace(); }
-    }
-=======
->>>>>>> 2ac478c33a71ad8835db5eeb1a29b32355017c94
 
         System.out.println("--- Generation Complete ---");
     }

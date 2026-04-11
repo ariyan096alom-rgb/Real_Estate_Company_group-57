@@ -1,38 +1,28 @@
 package com.example.real_estate_company.ZayedBinZaman.SiteEngineer;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-
-<<<<<<< HEAD
-
-
-import javafx.fxml.FXML;
-import javafx.scene.control.*;
 
 public class InspectionController {
 
     @FXML
-=======
-public class InspectionController
-{
-    @javafx.fxml.FXML
->>>>>>> 2ac478c33a71ad8835db5eeb1a29b32355017c94
     private TextArea output;
-    @javafx.fxml.FXML
+    @FXML
     private TextField inspectionID;
-    @javafx.fxml.FXML
+    @FXML
     private TextField checkList;
 
-    @javafx.fxml.FXML
+    @FXML
     public void initialize() {
     }
 
-    @javafx.fxml.FXML
+    @FXML
     public void recordOA(ActionEvent actionEvent) {
     }
 
-    @javafx.fxml.FXML
+    @FXML
     public void validateOA(ActionEvent actionEvent) {
     }
 }
