@@ -21,6 +21,12 @@ public class ClientDashboardController
 
     @javafx.fxml.FXML
     public void signOutButtonOnAction(ActionEvent actionEvent) {
+        try {
+            Helper.logOut(actionEvent); // You must pass the actionEvent here!
+        } catch (Exception e) {
+            e.printStackTrace();
+            Helper.showAlert("Error", "Could not sign out.");
+        }
     }
 
     @javafx.fxml.FXML

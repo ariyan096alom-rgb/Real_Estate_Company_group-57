@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400" prefWidth="600" xmlns="http://javafx.com/javafx/8">
+<AnchorPane prefHeight="400" prefWidth="600" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.real_estate_company.ZayedBinZaman.LeagalUser.ContractController">
     <children>
         <VBox layoutX="50" layoutY="30" spacing="10">
-            <Label text="Contract"/>
-            <TextField promptText="Contract ID"/>
-            <TextField promptText="File Name"/>
-            <Button text="Upload Contract"/>
-            <Button text="Validate Contract"/>
-            <Button text="Store Record"/>
-            <TextArea prefHeight="100"/>
+            <Label text="Contract" />
+            <TextField fx:id="contactId" promptText="Contract ID" />
+            <TextField fx:id="FileName" promptText="File Name" />
+            <Button onAction="#updateContracactOA" text="Upload Contract" />
+            <Button onAction="#validateContract" text="Validate Contract" />
+            <Button onAction="#storeRecordOA" text="Store Record" />
+            <TextArea fx:id="resultLabel" prefHeight="100" />
         </VBox>
     </children>
 </AnchorPane>
-

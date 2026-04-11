@@ -1,5 +1,6 @@
 package com.example.real_estate_company.ZayedBinZaman.LeagalUser;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -7,18 +8,31 @@ import javafx.scene.control.TextField;
 public class ComplianceController {
 
     @FXML
-    private TextField complianceId;
-
+    private TextArea StatusLebel;
     @FXML
-    private TextArea output;
+    private TextField complaianceIdTextField;
+    @FXML
+    private TextField projectIdTextField;
 
     @FXML
     public void approveStatus() {
-        output.setText("Status approved.");
+        StatusLebel.setText("Status approved.");
     }
 
     @FXML
     public void validateApproval() {
-        output.setText("Approval validated.");
+        StatusLebel.setText("Approval validated.");
+    }
+
+    @FXML
+    public void ProcessResultID(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void ValidateApprovalOnClick(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void aprovestatusOnClick(ActionEvent actionEvent) {
     }
 }

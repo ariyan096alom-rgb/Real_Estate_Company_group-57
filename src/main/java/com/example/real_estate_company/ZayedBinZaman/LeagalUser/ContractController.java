@@ -1,5 +1,6 @@
 package com.example.real_estate_company.ZayedBinZaman.LeagalUser;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -7,28 +8,37 @@ import javafx.scene.control.TextField;
 public class ContractController {
 
     @FXML
-    private TextField contractId;
-
+    private TextField contactId;
     @FXML
-    private TextArea output;
+    private TextField FileName;
+    @FXML
+    private TextArea resultLabel;
 
     @FXML
     public void uploadContract() {
-        if (contractId.getText().isEmpty()) {
-            output.setText("Please enter Contract ID first.");
+        if (contactId.getText().isEmpty()) {
+            resultLabel.setText("Please enter Contract ID first.");
             return;
         }
 
-        output.setText("Contract " + contractId.getText() + " uploaded.");
+        resultLabel.setText("Contract " + contactId.getText() + " uploaded.");
     }
 
     @FXML
     public void validateContract() {
-        if (contractId.getText().isEmpty()) {
-            output.setText("Please enter Contract ID first.");
+        if (contactId.getText().isEmpty()) {
+            resultLabel.setText("Please enter Contract ID first.");
             return;
         }
 
-        output.setText("Contract " + contractId.getText() + " validated successfully.");
+        resultLabel.setText("Contract " + contactId.getText() + " validated successfully.");
+    }
+
+    @FXML
+    public void updateContracactOA(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void storeRecordOA(ActionEvent actionEvent) {
     }
 }

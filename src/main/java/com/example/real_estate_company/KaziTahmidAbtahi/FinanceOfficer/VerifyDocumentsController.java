@@ -10,8 +10,6 @@ public class VerifyDocumentsController
     @javafx.fxml.FXML
     private TextField clientIncomeTF;
     @javafx.fxml.FXML
-    private TextArea notesTextArea;
-    @javafx.fxml.FXML
     private TextField clientNidTF;
     @javafx.fxml.FXML
     private ComboBox incomeVerifiedCB;
