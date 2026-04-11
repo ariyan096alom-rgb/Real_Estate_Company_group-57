@@ -9,4 +9,6 @@ module com.example.real_estate_company {
 
     opens com.example.real_estate_company.KaziTahmidAbtahi.Client to javafx.fxml;
     exports com.example.real_estate_company.KaziTahmidAbtahi.Client;
+    exports com.example.real_estate_company.ZayedBinZaman.SiteEngineer;
+    opens com.example.real_estate_company.ZayedBinZaman.SiteEngineer to javafx.fxml;
 }

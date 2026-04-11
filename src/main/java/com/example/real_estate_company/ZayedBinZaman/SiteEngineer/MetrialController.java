@@ -4,24 +4,26 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class InspectionController
+public class MetrialController
 {
     @javafx.fxml.FXML
     private TextArea output;
     @javafx.fxml.FXML
-    private TextField inspectionID;
+    private TextField quantity;
     @javafx.fxml.FXML
-    private TextField checkList;
+    private TextField metarialID;
+    @javafx.fxml.FXML
+    private TextField metarialName;
 
     @javafx.fxml.FXML
     public void initialize() {
     }
 
     @javafx.fxml.FXML
-    public void recordOA(ActionEvent actionEvent) {
+    public void trackOA(ActionEvent actionEvent) {
     }
 
     @javafx.fxml.FXML
-    public void validateOA(ActionEvent actionEvent) {
+    public void updateOA(ActionEvent actionEvent) {
     }
 }

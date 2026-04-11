@@ -7,10 +7,13 @@ import javafx.scene.control.TextField;
 public class AgreementController {
 
     @FXML
-    private TextField agreementId;
-
+    private TextField ClientIdTextField;
     @FXML
-    private TextArea output;
+    private TextField AgreementIdTextField;
+    @FXML
+    private TextField propertyIdTextField;
+    @FXML
+    private TextArea statusLabel;
 
     @FXML
     public void generateAgreement() {
@@ -24,5 +27,24 @@ public class AgreementController {
     @FXML
     public void validateAgreement() {
         output.setText("Agreement validated.");
+    }
+
+    @FXML
+    public void validateAgreementOnClick(ActionEvent actionEvent) {
+        String agreementID = AgreementIdTextField.getText().trim();
+        String propertyID = propertyIdTextField.getText().trim();
+        String clientID = ClientIdTextField.getText().trim();
+
+        if(agreementID.isEmpty() || propertyID.isEmpty() || clientID.isEmpty()) {
+            statusLabel.setText("Error: Please fill in all the field.");
+            statusLabel.setStyle("-fx-text-fill: red;");
+            return;
+        }
+
+        if(propertyIdTextField.)
+    }
+
+    @FXML
+    public void generateAgreementOnClick(ActionEvent actionEvent) {
     }
 }
