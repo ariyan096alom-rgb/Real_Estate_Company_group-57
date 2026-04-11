@@ -50,6 +50,7 @@ public class ProjectViewController
     private ComboBox <String>filterLocationCombobox;
     private ArrayList<Project> projects = new ArrayList<>();
 
+
     @javafx.fxml.FXML
     public void initialize() {
         locationTableview.setCellValueFactory(new PropertyValueFactory<>("location"));
@@ -67,6 +68,55 @@ public class ProjectViewController
     }
 
     @javafx.fxml.FXML
-    public void filterO(ActionEvent actionEvent) {
+    public void resetFilterOnAction(ActionEvent actionEvent) {
+    }
+
+    @javafx.fxml.FXML
+    public void createProjectOnAction(ActionEvent actionEvent) {
+        If (nameTextField.getText().isEmpty()){
+            errorText.setText("Enter Project Name!");
+            return;
+        }
+
+        If (priceTextfield.getText().isEmpty()){
+            errorText.setText("Enter Price!");
+            return;
+        }
+
+        If (locationCombobox.getValue() == null){
+            errorText.setText("Enter location!");
+            return;
+        }
+
+        If (availabilityCombobox.getValue() == null){
+            errorText.setText("Enter availability!");
+            return;
+        }
+
+        for (Project dp: projects)(
+                if (dp. getProjectName.equals(nameTextField.getText())){
+                    errorText.setText("Project Name must be unique!");
+                    return;
+        }
+        Project dp = new Project(
+                nameTextField.getText(),
+                locationCombobox.getValue(),
+                Integer.parseInt(priceTextfield.getText()),
+                availabilityCombobox.getValue(),
+                Integer.parseInt(availabilityEndTextfield.getText())
+        );
+
+        projects.add(dp);
+
+        projectTableView.getItems().addAll(projects);
+//this or can use loop for adding
+    }
+
+    @javafx.fxml.FXML
+    public void filterOnAction(ActionEvent actionEvent) {
+    }
+
+    @javafx.fxml.FXML
+    public void bestProjectOnAction(ActionEvent actionEvent) {
     }
 }
