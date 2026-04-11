@@ -98,9 +98,9 @@
 
                 <TextArea fx:id="recentPaymentsNotificationsTextArea" editable="false" layoutX="50.0" layoutY="199.0" prefHeight="123.0" prefWidth="605.0" style="-fx-control-inner-background: #fdfdfd;" wrapText="true" />
 
-                <Label fx:id="pendingBookingRequestLabel" layoutX="244.0" layoutY="85.0" prefHeight="34.0" prefWidth="236.0" text="....." />
+                <Label fx:id="pendingBookingRequestLabel" layoutX="244.0" layoutY="85.0" prefHeight="34.0" prefWidth="236.0" text="N/A" />
 
-                <Label fx:id="totalPendingPaymentsLabel" layoutX="242.0" layoutY="124.0" prefHeight="34.0" prefWidth="236.0" text="......" />
+                <Label fx:id="totalPendingPaymentsLabel" layoutX="242.0" layoutY="124.0" prefHeight="34.0" prefWidth="236.0" text="N/A" />
 
                 <PieChart fx:id="financeOfficerDashboardPieChart" layoutX="50.0" layoutY="330.0" prefHeight="234.0" prefWidth="325.0" title="Booking Ratio" />
             <Button layoutX="444.0" layoutY="350.0" mnemonicParsing="false" onAction="#DailySummaryButtonOnAction" text="Download Daily Summary" />

@@ -24,8 +24,8 @@
             </font>
         </Button>
 
-        <Label fx:id="feedbackLabel" alignment="TOP_LEFT" layoutX="100.0" layoutY="355.0" prefHeight="20.0" prefWidth="400.0" text="Prompt...." textFill="#361818" />
-      <Label layoutX="153.0" layoutY="34.0" prefHeight="48.0" prefWidth="313.0" text="Real Estate Management System " textFill="#1814d4">
+        <Label fx:id="feedbackLabel" alignment="TOP_LEFT" layoutX="100.0" layoutY="355.0" prefHeight="20.0" prefWidth="400.0" text="Welcome" textFill="#361818" />
+      <Label layoutX="213.0" layoutY="42.0" prefHeight="48.0" prefWidth="201.0" text="East West Properties" textFill="#1814d4">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
