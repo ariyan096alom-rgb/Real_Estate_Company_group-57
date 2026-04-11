@@ -1,0 +1,5 @@
+=== FINANCE OFFICER DAILY SUMMARY ===
+Total Pending Bookings: 3
+Total Approved Bookings: 4
+Total Pending Payments Amount: $435000.0
+=====================================

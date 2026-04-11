@@ -2,6 +2,7 @@ package com.example.real_estate_company;
 
 import com.example.real_estate_company.KaziTahmidAbtahi.Client.Client;
 import com.example.real_estate_company.KaziTahmidAbtahi.Client.ClientDashboardController;
+import com.example.real_estate_company.KaziTahmidAbtahi.FinanceOfficer.FinanceOfficer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -91,7 +92,44 @@ public class LoginController {
                     Helper.showAlert("Navigation Error", "Could not load the client dashboard.");
                 }
             }
-        } else {
+        }
+        else if (userType.equals("Finance Officer")) {
+
+            ArrayList<FinanceOfficer> financeOfficerList = new ArrayList<>();
+            try {
+                Helper.loadFrom("FinanceOfficerData.bin", financeOfficerList);
+            } catch (IOException e) {
+                Helper.showAlert("System Error", "Could not access Finance Officer data.");
+                return;
+            }
+
+            FinanceOfficer loggedInOfficer = null;
+
+            for (FinanceOfficer fo : financeOfficerList) {
+                if (fo.getEmail().equals(email) && fo.getPassword().equals(password)) {
+                    loggedInOfficer = fo;
+                    break;
+                }
+            }
+
+            if (loggedInOfficer == null) {
+                feedbackLabel.setText("Invalid Informations");
+                Helper.showAlert("Login Failed", "Incorrect email or password.");
+            } else {
+                try {
+                    // Update this path if your Finance Officer Dashboard FXML has a different name!
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/real_estate_company/KaziTahmidAbtahi/Finance Officer/FinanceOfficerDashboard.fxml"));
+                    Scene scene = new Scene(fxmlLoader.load());
+
+                    Helper.setScene(actionEvent, scene);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Helper.showAlert("Navigation Error", "Could not load the Finance Officer dashboard.");
+                }
+            }
+        } // <--- THIS WAS THE MISSING BRACE!
+        else {
             Helper.showAlert("Under Construction", "Login for " + userType + " is not set up yet.");
         }
     }

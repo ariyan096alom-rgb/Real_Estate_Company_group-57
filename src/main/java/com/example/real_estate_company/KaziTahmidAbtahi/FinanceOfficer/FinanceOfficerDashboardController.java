@@ -59,7 +59,7 @@ public class FinanceOfficerDashboardController
         // Event 4: Display text summary
         pendingBookingRequestLabel.setText(Integer.toString(pendingBookings));
         totalPendingPaymentsLabel.setText("$" + totalPendingAmount);
-        recentPaymentsNotificationsTextArea.setText("System updated from PropertyData.bin successfully.\nNew pending payments calculated.");
+        recentPaymentsNotificationsTextArea.setText("Welcome to the Finance Dashboard. You have " + pendingBookings + " pending bookings to review today.");
 
         // Event 4: Visually show bookings using PieChart
         pieChartList.add(new PieChart.Data("Pending Bookings", pendingBookings));

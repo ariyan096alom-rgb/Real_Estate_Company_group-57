@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="550.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.real_estate_company.KaziTahmidAbtahi.FinanceOfficer.InvoiceAndPaymentScheduleController">
     <children>
-        <Label layoutX="79.0" layoutY="46.0" text="Generate Invoice and Payment Schedule" textFill="#3b368e">
+        <Label layoutX="79.0" layoutY="46.0" text=" Invoice and Payment Schedule" textFill="#3b368e">
             <font>
                 <Font name="System Bold" size="20.0" />
             </font>

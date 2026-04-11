@@ -1,8 +1,7 @@
 package com.example.real_estate_company;
 
 import com.example.real_estate_company.KaziTahmidAbtahi.Client.Property;
-// TODO: Import your actual User or Employee class here!
-// import com.example.real_estate_company.User;
+import com.example.real_estate_company.KaziTahmidAbtahi.FinanceOfficer.FinanceOfficer; // Importing the new model!
 
 import java.io.File;
 import java.io.IOException;
@@ -15,7 +14,7 @@ public class DummyDataGenerator {
         // =========================================================
         // 1. GENERATE FINANCE OFFICER LOGIN CREDENTIALS
         // =========================================================
-        String userFileName = "UserData.bin"; // Change this if your login system uses a different file name
+        String userFileName = "FinanceOfficerData.bin";
 
         File userFile = new File(userFileName);
         if (userFile.exists()) {
@@ -23,14 +22,16 @@ public class DummyDataGenerator {
         }
 
         try {
-            // *** IMPORTANT: Update this line to match your actual User class constructor! ***
-            // Example assumes: User(int id, String name, String password, String role)
-            // User demoFinanceOfficer = new User(1001, "Tahmid", "1234", "Finance Officer");
-            // Helper.writeInto(userFileName, demoFinanceOfficer);
+            // Creating the actual Finance Officer object!
+            FinanceOfficer demoFinanceOfficer = new FinanceOfficer(1001, "Tahmid", "12345678", "tahmid@gmail.com");
 
-            System.out.println("Success! Demo Finance Officer created. (Make sure to uncomment and fix the User object line)");
+            // Saving it to the binary file
+            Helper.writeInto(userFileName, demoFinanceOfficer);
+
+            System.out.println("Success! Demo Finance Officer created.");
+            System.out.println("Login ID: 1001 | Password: 1234");
         } catch (Exception e) {
-            System.out.println("Error generating User data: " + e.getMessage());
+            System.out.println("Error generating Finance Officer data: " + e.getMessage());
         }
 
         // =========================================================
