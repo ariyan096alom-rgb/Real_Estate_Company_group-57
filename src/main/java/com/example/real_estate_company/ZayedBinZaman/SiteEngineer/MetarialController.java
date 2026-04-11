@@ -5,13 +5,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 public class MetarialController {
-}
-package controller;
-
-import javafx.fxml.FXML;
-import javafx.scene.control.*;
-
-public class MaterialController {
 
     @FXML
     private TextField materialName;

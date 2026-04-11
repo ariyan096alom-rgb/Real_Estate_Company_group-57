@@ -6,7 +6,9 @@ module com.example.real_estate_company {
 
     opens com.example.real_estate_company to javafx.fxml;
     exports com.example.real_estate_company;
+    opens com.example.real_estate_company.mahhi to javafx.fxml;
 
     opens com.example.real_estate_company.KaziTahmidAbtahi.Client to javafx.fxml;
     exports com.example.real_estate_company.KaziTahmidAbtahi.Client;
+    exports com.example.real_estate_company.mahhi;
 }
