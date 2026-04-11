@@ -12,93 +12,108 @@ import java.util.ArrayList;
 
 public class Helper {
 
-
-    public static void showAlert(String title, String message) {
+    public static void showAlert(String title, String message){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setContentText(message);
         alert.showAndWait();
     }
 
-    public static <T> void writeInto(String binFile, T data) throws IOException {
-        File file = new File(binFile);
-        FileOutputStream fos;
-        ObjectOutputStream oos;
+    public static <T> void writeInto(String fileName, T data) throws IOException {
+
+        File file = new File(fileName);
+        FileOutputStream fileOut;
+        ObjectOutputStream objOut;
 
         if (file.exists()) {
-            fos = new FileOutputStream(file, true);
-            oos = new AppendableObjectOutputStream(fos);
-        } else {
-            fos = new FileOutputStream(file);
-            oos = new ObjectOutputStream(fos);
+            fileOut = new FileOutputStream(file, true);
+            objOut = new AppendableObjectOutputStream(fileOut);
+
         }
 
-        oos.writeObject(data);
-        oos.close();
+        else {
+            fileOut = new FileOutputStream(file);
+            objOut = new ObjectOutputStream(fileOut);
+
+        }
+
+        objOut.writeObject(data);
+        objOut.close();
+
+
     }
 
-    public static <T> void loadFrom(String binFile, ArrayList<T> lst) throws IOException {
-        File file = new File(binFile);
+    public static <T> void loadFrom(String fileName, ArrayList<T> list) throws IOException {
+        File file = new File(fileName);
 
         if (!file.exists()) {
-            showAlert("File Error", "File not found");
+            showAlert("Error", "File missing.");
             return;
+
         }
 
-        FileInputStream fis = new FileInputStream(file);
-        ObjectInputStream ois = new ObjectInputStream(fis);
+        FileInputStream fileIn = new FileInputStream(file);
+        ObjectInputStream objIn = new ObjectInputStream(fileIn);
 
         try {
             while (true) {
-                T obj = (T) ois.readObject();
-                lst.add(obj);
+                T obj = (T) objIn.readObject();
+                list.add(obj);
             }
-        } catch (EOFException e) {
-            System.out.println("We have reached the end of file");
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        } finally {
-            ois.close();
         }
-    }
 
+        catch (EOFException e) {
+        }
+        catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        finally {
+            objIn.close();
+
+        }
+
+
+    }
 
     public static boolean appendTextFile(String fileName, String content) {
         try {
-            FileWriter fw = new FileWriter(fileName, true);
-            fw.write(content + "\n");
-            fw.close();
+            FileWriter writer = new FileWriter(fileName, true);
+            writer.write(content + "\n");
+            writer.close();
             return true;
-        } catch (Exception e) {
-            showAlert("File Error", "Could not append to " + fileName);
+        }
+
+        catch (Exception e) {
+            showAlert("Error", "Cannot save text.");
             return false;
         }
     }
 
-
-    public static void setScene(ActionEvent actionEvent, Scene scene) {
+    public static void setScene(ActionEvent event, Scene scene) {
         try {
-            javafx.stage.Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {
-            showAlert("Error", "Could not load scene");
+            showAlert("Error", "Cannot load page.");
         }
     }
 
-    public static void backToClientDashboard(ActionEvent actionEvent) throws IOException {
-        String fxmlPath = "/com/example/real_estate_company/KaziTahmidAbtahi/Client/ClientDashboard.fxml";
-        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource(fxmlPath));
+    public static void backToClientDashboard(ActionEvent event) throws IOException {
+        String path = "/com/example/real_estate_company/KaziTahmidAbtahi/Client/ClientDashboard.fxml";
+        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource(path));
         Scene scene = new Scene(loader.load());
-        setScene(actionEvent, scene);
+        setScene(event, scene);
+    }
+
+    public static void logOut(ActionEvent event) throws IOException {
+
+        String path = "/com/example/real_estate_company/Login.fxml";
+        FXMLLoader loader = new FXMLLoader(Helper.class.getResource(path));
+        Scene scene = new Scene(loader.load());
+        setScene(event, scene);
+
     }
 
 
-    public static void logOut(ActionEvent actionEvent) throws IOException {
-
-        String fxmlPath = "/com/example/real_estate_company/Login.fxml";
-        FXMLLoader loader = new FXMLLoader(Helper.class.getResource(fxmlPath));
-        Scene scene = new Scene(loader.load());
-        setScene(actionEvent, scene);
-    }
 }

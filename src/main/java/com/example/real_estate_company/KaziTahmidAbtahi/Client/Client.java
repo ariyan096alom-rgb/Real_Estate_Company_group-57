@@ -9,11 +9,11 @@ public class Client extends User {
     private String phoneNumber;
     private String gender;
 
-    public Client(int userId, String userName, String emailAddress, String password, LocalDate DOB, String gender, String phoneNumber) {
+    public Client(int userId, String userName, String emailAddress, String password, LocalDate DOB, String phoneNumber, String gender) {
         super(userId, userName, emailAddress, password);
         this.DOB = DOB;
-        this.gender = gender;
         this.phoneNumber = phoneNumber;
+        this.gender = gender;
     }
 
     public LocalDate getDOB() {

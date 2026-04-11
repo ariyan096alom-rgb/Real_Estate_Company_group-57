@@ -50,44 +50,57 @@ public class ClientRegistrationController
         String confirmPass = confirmPasswordTF.getText();
         LocalDate dob = dateOfBirthDP.getValue();
 
+        ArrayList<Client> existingClients = new ArrayList<>();
+
         String gender = "";
         if (maleRB.isSelected()) {
             gender = "Male";
-        } else if (femaleRB.isSelected()) {
+
+        }
+
+        else if (femaleRB.isSelected()) {
             gender = "Female";
+
         }
 
         if (name.isEmpty() || email.isEmpty() || phoneStr.isEmpty() || password.isEmpty() || confirmPass.isEmpty() || dob == null || gender.isEmpty()) {
-            feedbackLabel.setText("Error: Please fill in all fields.");
+            feedbackLabel.setText("Please fill in all fields.");
             return;
+
         }
 
         if (!confirmationCheckBox.isSelected()) {
-            feedbackLabel.setText("Error: You must confirm your information.");
+            feedbackLabel.setText("You must confirm your information.");
             return;
+
         }
 
         if (!email.contains("@")) {
-            feedbackLabel.setText("Error: Email format is invalid.");
+            feedbackLabel.setText("Email format is invalid.");
             return;
+
         }
 
         if (!password.equals(confirmPass)) {
-            feedbackLabel.setText("Error: Passwords do not match.");
+            feedbackLabel.setText("Passwords do not match.");
             return;
+
         }
 
         if (password.length() < 8 || password.length() > 16) {
-            feedbackLabel.setText("Error: Password must be 8-16 characters.");
+            feedbackLabel.setText("Password must be 8-16 characters.");
             return;
+
         }
 
-        if (phoneStr.length() != 11 || !phoneStr.matches("\\d+")) {
-            feedbackLabel.setText("Error: Phone number must be exactly 11 digits.");
+        if (phoneStr.length() != 11) {
+            feedbackLabel.setText("Phone must be 11 digits.");
             return;
+
+
         }
 
-        ArrayList<Client> existingClients = new ArrayList<>();
+
         try {
             Helper.loadFrom("ClientData.bin", existingClients);
 
@@ -98,7 +111,9 @@ public class ClientRegistrationController
                     return;
                 }
             }
-        } catch (IOException e) {
+        }
+
+        catch (IOException e) {
 
         }
 
@@ -108,17 +123,17 @@ public class ClientRegistrationController
 
         try {
             Helper.writeInto("ClientData.bin", newClient);
-
             feedbackLabel.setText("Registration Successful!");
-
-            Helper.showAlert("Registration Success", "Account created successfully!\n\nYour User ID is: " + randomUserId);
-
+            Helper.showAlert("Registration Success", "Account created successfully!\n Your User ID is: " + randomUserId);
             Helper.logOut(actionEvent);
 
         } catch (IOException e) {
             feedbackLabel.setText("Error: Could not save data to system.");
-            e.printStackTrace();
+
+
+
         }
+
     }
 
 
@@ -126,9 +141,14 @@ public class ClientRegistrationController
     public void backToLoginButtonOnAction(ActionEvent actionEvent) {
         try {
             Helper.logOut(actionEvent);
-        } catch (IOException e) {
+        }
+
+        catch (IOException e) {
             Helper.showAlert("Error", "Could not load the login screen.");
+
+
         }
     }
+
 
 }

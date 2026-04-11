@@ -1,60 +1,21 @@
 package com.example.real_estate_company.KaziTahmidAbtahi.FinanceOfficer;
 
-import java.io.Serializable;
+import com.example.real_estate_company.User;
 
-public class FinanceOfficer implements Serializable {
 
-    private int employeeId;
-    private String name;
-    private String password;
-    private String email;
+public class FinanceOfficer extends User {
 
-    public FinanceOfficer(int employeeId, String name, String password, String email) {
-        this.employeeId = employeeId;
-        this.name = name;
-        this.password = password;
-        this.email = email;
-    }
-
-    public int getEmployeeId() {
-        return employeeId;
-    }
-
-    public void setEmployeeId(int employeeId) {
-        this.employeeId = employeeId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public FinanceOfficer(int userId, String userName, String emailAddress, String password) {
+        super(userId, userName, emailAddress, password);
     }
 
     @Override
     public String toString() {
         return "FinanceOfficer{" +
-                "employeeId=" + employeeId +
-                ", name='" + name + '\'' +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", emailAddress='" + emailAddress + '\'' +
                 ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
                 '}';
     }
 }

@@ -2,35 +2,30 @@ package com.example.real_estate_company.KaziTahmidAbtahi.Client;
 
 import com.example.real_estate_company.Helper;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class SubmitBookingRequestController {
 
-    @javafx.fxml.FXML
-    private ComboBox<String> paymentPlanCB;
-    @javafx.fxml.FXML
-    private TextField installmentDetailsTF;
-    @javafx.fxml.FXML
-    private Label feedbackLabel;
+    @javafx.fxml.FXML private ComboBox<String> paymentPlanCB;
+    @javafx.fxml.FXML private TextField installmentDetailsTF;
+    @javafx.fxml.FXML private Label feedbackLabel;
 
     private Property currentProperty;
 
     @javafx.fxml.FXML
     public void initialize() {
-        // Event 5: Setup Payment Options
         paymentPlanCB.getItems().addAll("Full Payment", "12-Month Installment Plan");
-        installmentDetailsTF.setEditable(false);
     }
 
     public void initData(Property property) {
         this.currentProperty = property;
-        // Event 5: Show Property Name and Price
-        feedbackLabel.setText("Property: " + property.getPropertyName() + " | Price: $" + property.getPrice());
+        feedbackLabel.setText("Property: " + property.getPropertyName() + " | Price: " + property.getPrice() + " Taka");
     }
 
     @javafx.fxml.FXML
@@ -41,12 +36,11 @@ public class SubmitBookingRequestController {
             return;
         }
 
-        // Event 6: Logic for calculating and displaying the plan
         if (selectedPlan.equals("Full Payment")) {
-            installmentDetailsTF.setText("Total Due: $" + currentProperty.getPrice());
-        } else if (selectedPlan.equals("12-Month Installment Plan")) {
+            installmentDetailsTF.setText("Total Due: " + currentProperty.getPrice() + " Taka");
+        } else {
             double monthly = currentProperty.getPrice() / 12.0;
-            installmentDetailsTF.setText(String.format("12 Monthly Installments of: $%.2f", monthly));
+            installmentDetailsTF.setText(String.format("12 Monthly Installments of: %.2f Taka", monthly));
         }
     }
 
@@ -54,39 +48,29 @@ public class SubmitBookingRequestController {
     public void confirmBookingButtonOnAction(ActionEvent actionEvent) {
         String selectedPlan = paymentPlanCB.getValue();
         if (selectedPlan == null) {
-            Helper.showAlert("Validation Error", "Please select a payment plan.");
+            Helper.showAlert("Error", "Please select a payment plan.");
             return;
         }
 
-        // Event 8: Create Booking object
-        String refNum = "BOOK-" + (int)(Math.random() * 1000000);
-        BookingRequest newBooking = new BookingRequest(
-                refNum, currentProperty.getPropertyId(), currentProperty.getPropertyName(),
-                selectedPlan, currentProperty.getPrice(), "Pending"
-        );
+        String refNum = "Book-" + (int)(Math.random() * 900000 + 100000);
+        BookingRequest newBooking = new BookingRequest(refNum, currentProperty.getPropertyId(), currentProperty.getPropertyName(), selectedPlan, currentProperty.getPrice(), "Pending");
 
         try {
-            // Save booking to binary file
             Helper.writeInto("BookingRequests.bin", newBooking);
-
-            // Event 9: Update property status and SAVE to file
             updatePropertyStatusInSystem();
 
-            // Event 10: Show confirmation with reference number
-            Helper.showAlert("Booking Confirmed",
-                    "Success! Your booking reference number is: " + refNum);
-
+            Helper.showAlert("Booking Confirmed", "Success! Your reference number is: " + refNum);
             Helper.backToClientDashboard(actionEvent);
+        }
 
-        } catch (IOException e) {
-            Helper.showAlert("System Error", "Could not process booking request.");
+        catch (Exception e) {
+            Helper.showAlert("Error", "Could not process booking request.");
         }
     }
 
     private void updatePropertyStatusInSystem() {
         ArrayList<Property> allProperties = new ArrayList<>();
         try {
-            // Event 9 logic: Load, Update, and REWRITE the file
             Helper.loadFrom("PropertyData.bin", allProperties);
 
             for (Property p : allProperties) {
@@ -96,34 +80,35 @@ public class SubmitBookingRequestController {
                 }
             }
 
-            // Overwrite the file with updated data
-            File f = new File("PropertyData.bin");
-            if (f.exists()) f.delete();
+            File file = new File("PropertyData.bin");
+            if (file.exists()) file.delete();
 
             for (Property p : allProperties) {
                 Helper.writeInto("PropertyData.bin", p);
             }
-        } catch (Exception e) {
-            System.out.println("Error updating property file: " + e.getMessage());
+        }
+
+        catch (Exception e) {
+            System.out.println("Status update failed.");
+
         }
     }
-
-
 
     @javafx.fxml.FXML
     public void returnToPropertyDetailsButtonOnAction(ActionEvent actionEvent) {
         try {
-            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/com/example/real_estate_company/KaziTahmidAbtahi/Client/PropertyDetails.fxml"));
-            javafx.scene.Scene scene = new javafx.scene.Scene(loader.load());
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/real_estate_company/KaziTahmidAbtahi/Client/PropertyDetails.fxml"));
+            Scene scene = new Scene(loader.load());
 
-            // We MUST send the property data back to the details screen!
             PropertyDetailsController controller = loader.getController();
             controller.initData(currentProperty);
 
             Helper.setScene(actionEvent, scene);
-        } catch (Exception e) {
-            e.printStackTrace();
-            Helper.showAlert("Error", "Could not go back to Property Details.");
         }
+
+        catch (Exception e) {
+            Helper.showAlert("Error", "Could not return to details.");
+        }
+
     }
 }

@@ -11,8 +11,14 @@ public class ClientDashboardController
     @javafx.fxml.FXML
     private AnchorPane areaForSceneSwitching;
 
+    private Client loggedInClient;
+
     @javafx.fxml.FXML
     public void initialize() {
+    }
+
+    public void initData(Client user) {
+        this.loggedInClient = user;
     }
 
     @javafx.fxml.FXML
@@ -22,11 +28,14 @@ public class ClientDashboardController
     @javafx.fxml.FXML
     public void signOutButtonOnAction(ActionEvent actionEvent) {
         try {
-            Helper.logOut(actionEvent); // You must pass the actionEvent here!
-        } catch (Exception e) {
-            e.printStackTrace();
+            Helper.logOut(actionEvent);
+        }
+
+        catch (Exception e) {
+
             Helper.showAlert("Error", "Could not sign out.");
         }
+
     }
 
     @javafx.fxml.FXML
@@ -43,13 +52,15 @@ public class ClientDashboardController
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/real_estate_company/KaziTahmidAbtahi/Client/PropertySearch.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             Helper.setScene(actionEvent, scene);
-        } catch (Exception e) {
-            e.printStackTrace();
+        }
+
+        catch (Exception e) {
+
             Helper.showAlert("Error", "Could not load the Property Search screen.");
         }
     }
 
 
-    public void initData(Client loggedInClient) {
-    }
+
+
 }

@@ -19,28 +19,28 @@ public abstract class User implements Serializable {
         return userId;
     }
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public String getEmailAddress() {
-        return emailAddress;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    public String getUserName() {
+        return userName;
     }
 
     public void setUserName(String userName) {
         this.userName = userName;
     }
 
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public void setPassword(String password) {

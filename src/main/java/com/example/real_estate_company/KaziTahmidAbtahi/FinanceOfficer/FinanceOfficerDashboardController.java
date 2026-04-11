@@ -11,12 +11,10 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
-
-import java.io.IOException;
 import java.util.ArrayList;
 
-public class FinanceOfficerDashboardController
-{
+public class FinanceOfficerDashboardController {
+
     @javafx.fxml.FXML
     private BorderPane mainBorderPane;
     @javafx.fxml.FXML
@@ -30,41 +28,49 @@ public class FinanceOfficerDashboardController
     @javafx.fxml.FXML
     private PieChart financeOfficerDashboardPieChart;
 
-    private ObservableList<PieChart.Data> pieChartList = FXCollections.observableArrayList();
+
     private int pendingBookings = 0;
     private int approvedBookings = 0;
     private double totalPendingAmount = 0.0;
 
+    private ObservableList<PieChart.Data> chartData = FXCollections.observableArrayList();
+
     @javafx.fxml.FXML
     public void initialize() {
-        // Event 3: Fetch and calculate dashboard summary data using Helper
-        ArrayList<Property> propertyList = new ArrayList<>();
+        ArrayList<Property> properties = new ArrayList<>();
 
         try {
-            // Replaced messy FileInputStream logic with your Helper method!
-            Helper.loadFrom("PropertyData.bin", propertyList);
+            Helper.loadFrom("PropertyData.bin", properties);
 
-            for (Property p : propertyList) {
-                if (p.getStatus().equalsIgnoreCase("Pending")) {
-                    pendingBookings++;
-                    totalPendingAmount += p.getPrice();
-                } else if (p.getStatus().equalsIgnoreCase("Approved")) {
-                    approvedBookings++;
+            for (Property p : properties) {
+                if (p.getStatus().toLowerCase().equals("pending")) {
+                    pendingBookings = pendingBookings + 1;
+                    totalPendingAmount = totalPendingAmount + p.getPrice();
+
+                }
+
+                else if (p.getStatus().toLowerCase().equals("approved")) {
+                    approvedBookings = approvedBookings + 1;
+
                 }
             }
-        } catch (IOException e) {
-            Helper.showAlert("Data Error", "Could not load property data for dashboard calculation.");
+
         }
 
-        // Event 4: Display text summary
-        pendingBookingRequestLabel.setText(Integer.toString(pendingBookings));
-        totalPendingPaymentsLabel.setText("$" + totalPendingAmount);
+        catch (Exception e) {
+            System.out.println("Data missing or file not found.");
+
+        }
+
+        pendingBookingRequestLabel.setText(pendingBookings + "");
+        totalPendingPaymentsLabel.setText(totalPendingAmount + " Tk");
         recentPaymentsNotificationsTextArea.setText("Welcome to the Finance Dashboard. You have " + pendingBookings + " pending bookings to review today.");
 
-        // Event 4: Visually show bookings using PieChart
-        pieChartList.add(new PieChart.Data("Pending Bookings", pendingBookings));
-        pieChartList.add(new PieChart.Data("Approved Bookings", approvedBookings));
-        financeOfficerDashboardPieChart.setData(pieChartList);
+
+        chartData.add(new PieChart.Data("Pending", pendingBookings));
+        chartData.add(new PieChart.Data("Approved", approvedBookings));
+        financeOfficerDashboardPieChart.setData(chartData);
+
     }
 
     @javafx.fxml.FXML
@@ -84,13 +90,12 @@ public class FinanceOfficerDashboardController
     }
 
     @javafx.fxml.FXML
-
     public void signOutButtonOnAction(ActionEvent actionEvent) {
         try {
             Helper.logOut(actionEvent);
-        } catch (Exception e) {
-            e.printStackTrace();
-            Helper.showAlert("Error", "Could not sign out.");
+        }
+        catch (Exception e) {
+            Helper.showAlert("Error", "Cannot sign out.");
         }
     }
 
@@ -108,21 +113,19 @@ public class FinanceOfficerDashboardController
 
     @javafx.fxml.FXML
     public void DailySummaryButtonOnAction(ActionEvent actionEvent) {
-        // Event 6 & 7: Generate and export summary as .txt
+
         String filename = "Daily_Finance_Summary.txt";
+        String content = " FINANCE DAILY SUMMARY \n" +
+                "Pending Bookings: " + pendingBookings + "\n" +
+                "Approved Bookings: " + approvedBookings + "\n" +
+                "Pending Payments Amount: " + totalPendingAmount + " Tk\n";
 
-        String content = "=== FINANCE OFFICER DAILY SUMMARY ===\n" +
-                "Total Pending Bookings: " + pendingBookings + "\n" +
-                "Total Approved Bookings: " + approvedBookings + "\n" +
-                "Total Pending Payments Amount: $" + totalPendingAmount + "\n" +
-                "=====================================";
+        boolean b = Helper.appendTextFile(filename, content);
 
-        boolean isSuccess = Helper.appendTextFile(filename, content);
-
-        // Event 8: Display confirmation message
-        if (isSuccess) {
-            Helper.showAlert("Download Complete", "Summary downloaded successfully to " + filename);
+        if (b) {
+            Helper.showAlert("Done", "Summary downloaded Successfuly.");
+        } else {
+            Helper.showAlert("Error", "Download failed.");
         }
-
     }
 }

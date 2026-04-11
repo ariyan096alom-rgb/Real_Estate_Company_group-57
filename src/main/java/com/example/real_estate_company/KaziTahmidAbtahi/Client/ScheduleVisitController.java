@@ -19,7 +19,6 @@ public class ScheduleVisitController {
     @javafx.fxml.FXML
     private Label propertynNameLabel;
 
-    // ADDED: This is required so your initData method can save the property!
     private Property currentProperty;
 
     @javafx.fxml.FXML
@@ -30,6 +29,7 @@ public class ScheduleVisitController {
     public void initData(Property property) {
         this.currentProperty = property;
         propertynNameLabel.setText("Scheduling visit for: " + property.getPropertyName());
+
     }
 
     @javafx.fxml.FXML
@@ -37,33 +37,32 @@ public class ScheduleVisitController {
         LocalDate selectedDate = selectDateDatePicker.getValue();
         String selectedTime = selectTimeCB.getValue();
 
-        // 1. Validation: Ensure both fields are filled
         if (selectedDate == null || selectedTime == null) {
             Helper.showAlert("Validation Error", "Please select both a date and a time slot.");
             return;
         }
 
-        // 2. Validation: Prevent booking dates in the past
         if (selectedDate.isBefore(LocalDate.now())) {
             Helper.showAlert("Validation Error", "You cannot schedule a visit in the past. Please select a future date.");
             return;
         }
 
-        // 3. Verification: Check for time clashes
         ArrayList<VisitSiteAppointment> existingAppointments = new ArrayList<>();
+
         try {
             Helper.loadFrom("VisitAppointments.bin", existingAppointments);
-        } catch (Exception e) {
+        }
+
+        catch (Exception e) {
             System.out.println("First appointment! System will create a new file.");
         }
 
         boolean isSlotTaken = false;
         for (VisitSiteAppointment appointment : existingAppointments) {
-            if (appointment.getPropertyId() == currentProperty.getPropertyId() &&
-                    appointment.getVisitDate().equals(selectedDate) &&
-                    appointment.getVisitTime().equals(selectedTime)) {
+            if (appointment.getPropertyId() == currentProperty.getPropertyId() && appointment.getVisitDate().equals(selectedDate) && appointment.getVisitTime().equals(selectedTime)) {
                 isSlotTaken = true;
                 break;
+
             }
         }
 
@@ -72,32 +71,24 @@ public class ScheduleVisitController {
             return;
         }
 
-        // 4. Save and Confirm
-        String confirmationNum = "VISIT-" + (int) (Math.random() * 100000);
+        String confirmationNum = "Visit -" + (int) (Math.random() * 100000);
 
-        VisitSiteAppointment newAppointment = new VisitSiteAppointment(
-                currentProperty.getPropertyId(),
-                currentProperty.getPropertyName(),
-                selectedDate,
-                selectedTime,
-                confirmationNum
-        );
+        VisitSiteAppointment newAppointment = new VisitSiteAppointment(currentProperty.getPropertyId(), currentProperty.getPropertyName(), selectedDate, selectedTime, confirmationNum);
 
         try {
-            // Save the appointment
+
             Helper.writeInto("VisitAppointments.bin", newAppointment);
 
-            // Show Success Message
-            Helper.showAlert("Appointment Confirmed",
-                    "Successfully booked!\n\nConfirmation Number: " + confirmationNum +
-                            "\nDate: " + selectedDate + "\nTime: " + selectedTime);
+            Helper.showAlert("Appointment Confirmed", "Successfully booked!\n\nConfirmation Number: " + confirmationNum + "\nDate: " + selectedDate + "\nTime: " + selectedTime);
 
-            // Go back to the dashboard after booking
             Helper.backToClientDashboard(actionEvent);
 
         } catch (IOException e) {
             Helper.showAlert("System Error", "Could not save the appointment.");
+
         }
+
+
     }
 
 
