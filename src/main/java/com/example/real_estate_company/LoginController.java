@@ -120,7 +120,7 @@ public class LoginController {
 
             else {
                 try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/real_estate_company/KaziTahmidAbtahi/FinanceOfficer/FinanceOfficerDashboard.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/real_estate_company/KaziTahmidAbtahi/Finance Officer/FinanceOfficerDashboard.fxml"));
                     Scene scene = new Scene(loader.load());
                     Helper.setScene(actionEvent, scene);
                 }
