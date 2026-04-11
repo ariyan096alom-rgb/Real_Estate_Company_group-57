@@ -17,11 +17,7 @@ public class AgreementController {
 
     @FXML
     public void generateAgreement() {
-        if (agreementId.getText().isEmpty()) {
-            output.setText("Enter Agreement ID.");
-        } else {
-            output.setText("Agreement generated: " + agreementId.getText());
-        }
+
     }
 
     @FXML
@@ -30,18 +26,7 @@ public class AgreementController {
     }
 
     @FXML
-    public void validateAgreementOnClick(ActionEvent actionEvent) {
-        String agreementID = AgreementIdTextField.getText().trim();
-        String propertyID = propertyIdTextField.getText().trim();
-        String clientID = ClientIdTextField.getText().trim();
 
-        if(agreementID.isEmpty() || propertyID.isEmpty() || clientID.isEmpty()) {
-            statusLabel.setText("Error: Please fill in all the field.");
-            statusLabel.setStyle("-fx-text-fill: red;");
-            return;
-        }
-
-        if(propertyIdTextField.)
     }
 
     @FXML
